@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use GuzzleHttp\Psr7\Request;
+
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Http\Request;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use Illuminate\Routing\Controller as BaseController;
+
 
 class Dashboard extends BaseController
 {
@@ -17,7 +21,7 @@ class Dashboard extends BaseController
         return view('data-santri');
     }
     public function storex(Request $request){
-        dd($request);
+        dd($request->files);
     }
 
 }
