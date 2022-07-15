@@ -59,5 +59,24 @@ class Dashboard extends BaseController
         }
         return redirect('dashboard/view/');
     }
+    public function search(Request $r){
+        if($r->type == 'nama'){
+            $db = new student;
+
+            $data = [
+                'siswa' => $db->where('nama', 'like', "%" . $r->text . "%")->paginate(10)
+            ];
+            
+            return view('data-santri', $data);
+        }else{
+            $db = new student;
+
+            $data = [
+                'siswa' => $db->where('nis', 'like', "%" . $r->text . "%")->paginate(10)
+            ];
+            
+            return view('data-santri', $data);
+        }
+    }
 
 }
