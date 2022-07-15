@@ -17,13 +17,17 @@ class CreateStudentsTable extends Migration
             $table->id();
             $table->string('nis')->nullable();
             $table->string('nama')->nullable();
-            $table->string('formal')->nullable();
+            $table->string('no_kk')->nullable();
+            $table->string('no_nik')->nullable();
+            $table->string('nisn')->nullable();
             $table->string('ibu')->nullable();
             $table->string('ayah')->nullable();
-            $table->string('tpttlahir')->nullable();
-            $table->string('tgltlahir')->nullable();
+            $table->string('tptlahir')->nullable();
+            $table->string('tgllahir')->nullable();
             $table->string('alamat')->nullable();
             $table->string('kamar')->nullable();
+            $table->string('kls_formal')->nullable();
+            $table->string('kls_diniyah')->nullable();
             $table->timestamps();
         });
     }
