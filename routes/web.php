@@ -24,7 +24,7 @@ Route::get('/dashboard', function () {
 
 
 Route::get('/dashboard/view', [Dashboard::class, 'view'])->middleware(['auth'])->name('dashboard/view');
-Route::post('/dashboard/view/storex', [Dashboard::class, 'storex'])->middleware(['auth']);
+Route::post('/dashboard/view/store', [Dashboard::class, 'store'])->middleware(['auth']);
 
 
 require __DIR__.'/auth.php';
