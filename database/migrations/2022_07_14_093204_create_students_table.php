@@ -20,6 +20,7 @@ class CreateStudentsTable extends Migration
             $table->string('no_kk')->nullable();
             $table->string('no_nik')->nullable();
             $table->string('nisn')->nullable();
+            $table->string('kelamin')->nullable();
             $table->string('ibu')->nullable();
             $table->string('ayah')->nullable();
             $table->string('tptlahir')->nullable();
@@ -28,6 +29,8 @@ class CreateStudentsTable extends Migration
             $table->string('kamar')->nullable();
             $table->string('kls_formal')->nullable();
             $table->string('kls_diniyah')->nullable();
+            $table->string('hp_ayah')->nullable();
+            $table->string('hp_ibu')->nullable();
             $table->timestamps();
         });
     }
