@@ -26,6 +26,7 @@ Route::get('/dashboard', function () {
 Route::get('/dashboard/data-santri', [Dashboard::class, 'view'])->middleware(['auth'])->name('dashboard/data-santri');
 Route::post('/dashboard/data-santri/store', [Dashboard::class, 'store'])->middleware(['auth']);
 Route::get('/dashboard/data-santri/cari', [Dashboard::class, 'search'])->middleware(['auth']);
+Route::get('/dashboard/data-santri/detail/{any}', [Dashboard::class, 'detail'])->middleware(['auth']);
 
 
 require __DIR__.'/auth.php';

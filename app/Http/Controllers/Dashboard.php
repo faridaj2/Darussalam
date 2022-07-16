@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -37,6 +38,14 @@ class Dashboard extends BaseController
 
         for ($i=1; $i < count($sheet)-1; $i++) { 
             $db = new student;
+
+            $date_birth = \PhpOffice\PhpSpreadsheet\Shared\Date::excelToTimestamp($sheet[$i][7]);
+            $date_birth = date('Y-m-d',$date_birth);
+
+            $date_sign = \PhpOffice\PhpSpreadsheet\Shared\Date::excelToTimestamp($sheet[$i][16]);
+            $date_sign = date('Y-m-d',$date_sign);
+
+
             $db::create([
                 'nis'       => null,
                 'nama'      => $sheet[$i][1],
@@ -47,17 +56,18 @@ class Dashboard extends BaseController
                 'ibu'       => $sheet[$i][10],
                 'ayah'      => $sheet[$i][9],
                 'tptlahir'  => $sheet[$i][6],
-                'tgllahir'  => $sheet[$i][7],
+                'tgllahir'  => $date_birth,
                 'alamat'    => $sheet[$i][8],
                 'kamar'     => $sheet[$i][15],
                 'kls_formal'=> $sheet[$i][14],
                 'kls_diniyah'=> $sheet[$i][13],
                 'hp_ayah'   => $sheet[$i][11],
-                'hp_ibu'    => $sheet[$i][12]
+                'hp_ibu'    => $sheet[$i][12],
+                'tahun_daftar' => $date_sign
             ]);
             
         }
-        return redirect('dashboard/view/');
+        return redirect('dashboard/data-santri/');
     }
     public function search(Request $r){
         if($r->type == 'nama'){
@@ -77,6 +87,16 @@ class Dashboard extends BaseController
             
             return view('data-santri', $data);
         }
+    }
+
+    public function detail(Request $request, $any){
+        $db = new student;
+        $data = [
+            
+            'siswa' => $db->find($any)
+        ];
+
+        return view('detail', $data);
     }
 
 }

@@ -24,14 +24,15 @@
                 <div class="bg-white border-b border-gray-200 prose">
                     <h2>Tambah Via Excell</h2>
 
+
                     <form method="POST" action="/dashboard/data-santri/store" enctype="multipart/form-data">
+
                         @csrf
 
 
                         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                             for="file_input">Upload file</label>
                         <input
-                            class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                             aria-describedby="file_input_help" id="file_input" type="file" name="sheet">
                         <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">Upload File Excell
                         </p>
@@ -55,7 +56,7 @@
         
         
         <label for="countries" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-gray-300">Select an option</label>
-        <select name="type" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-l-lg w-20 focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+        <select name="type" class="w-20 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-l-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
         <option selected="nama" value="nama">nama</option>
         <option value="nis">NIS</option>
         
@@ -103,7 +104,7 @@
             @foreach ($siswa as $data)
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                 <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    {{ $data->nama }}
+                    <a href="/dashboard/data-santri/detail/{{ $data->id }}">{{ $data->nama }}</a>
                 </th>
                 <td class="py-4 px-6">
                     {{ $data->nis }}

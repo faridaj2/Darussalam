@@ -24,13 +24,14 @@ class CreateStudentsTable extends Migration
             $table->string('ibu')->nullable();
             $table->string('ayah')->nullable();
             $table->string('tptlahir')->nullable();
-            $table->string('tgllahir')->nullable();
+            $table->date('tgllahir')->nullable();
             $table->string('alamat')->nullable();
             $table->string('kamar')->nullable();
             $table->string('kls_formal')->nullable();
             $table->string('kls_diniyah')->nullable();
             $table->string('hp_ayah')->nullable();
             $table->string('hp_ibu')->nullable();
+            $table->date('tahun_daftar')->nullable();
             $table->timestamps();
         });
     }
