@@ -36,7 +36,7 @@ class Dashboard extends BaseController
         $reader->setReadDataOnly(true);
         $sheet = $reader->load($file)->getActiveSheet()->toArray();
 
-        for ($i=1; $i < count($sheet)-1; $i++) { 
+        for ($i=1; $i < count($sheet); $i++) { 
             $db = new student;
 
             $date_birth = \PhpOffice\PhpSpreadsheet\Shared\Date::excelToTimestamp($sheet[$i][7]);
