@@ -106,6 +106,12 @@
                                 </div>
                             </div>
                             <div class="grid grid-cols-2">
+                                <div class="px-4 py-2 font-semibold">NIS</div>
+                                <div class="px-4 py-2">
+                                    {{ $siswa->nis }}
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2">
                                 <div class="px-4 py-2 font-semibold">Tahun Kelahiran</div>
                                 <div class="px-4 py-2">{{ $siswa->tgllahir }}</div>
                             </div>
@@ -118,7 +124,7 @@
                 <div class="my-4"></div>
 
                 <!-- Experience and education -->
-                {{-- <div class="bg-white p-3 shadow-sm rounded-sm">
+                <div class="bg-white p-3 shadow-sm rounded-sm">
 
                     <div class="grid grid-cols-2">
                         <div>
@@ -177,7 +183,7 @@
                             </ul>
                         </div>
                     </div>
-                    <!-- End of Experience and education grid --> --}}
+                    <!-- End of Experience and education grid -->
                 </div>
 
 

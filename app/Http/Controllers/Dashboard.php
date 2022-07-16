@@ -47,7 +47,7 @@ class Dashboard extends BaseController
 
 
             $db::create([
-                'nis'       => null,
+                'nis'       => $sheet[$i][17],
                 'nama'      => $sheet[$i][1],
                 'no_kk'     => $sheet[$i][2],
                 'no_nik'    => $sheet[$i][3],
