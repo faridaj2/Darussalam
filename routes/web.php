@@ -30,6 +30,9 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/dashboard/data-santri/detail/{any}', [Dashboard::class, 'detail']);
     Route::get('/dashboard/data-santri/input-data/', [Dashboard::class, 'inputData']);
     Route::post('/dashboard/data-santri/input-data/', [Dashboard::class, 'inputDataStore']);
+    Route::get('/dashboard/data-santri/delete/{id}/', [Dashboard::class, 'deleteData']);
+    Route::get('/dashboard/data-santri/edit/{id}/', [Dashboard::class, 'editData']);
+    Route::post('/dashboard/data-santri/editData/', [Dashboard::class, 'editDataStore']);
     
 
 });

@@ -12,7 +12,7 @@ use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use Illuminate\Routing\Controller as BaseController;
 use App\Models\student;
-
+use Illuminate\Support\Facades\Redirect;
 
 class Dashboard extends BaseController
 {
@@ -123,6 +123,46 @@ class Dashboard extends BaseController
             'hp_ibu'    => $request->hpibu,
             'tahun_daftar' => $request->thndaftar
         ]);
+        return redirect('dashboard/data-santri/');
+    }
+    
+    public function deleteData(Request $request, $id)
+    {
+        student::destroy($id);
+
+        return Redirect::back();
+    }
+    public function editData($id)
+    {
+        $data = [
+            'siswa' => student::find($id)
+        ];
+        return view('edit-data', $data);
+    }
+    public function editDataStore(Request $request)
+    {
+        student::find($request->id)
+        ->update([
+            'nis'       => $request->nis,
+            'nama'      => $request->nama,
+            'no_kk'     => $request->kk,
+            'no_nik'    => $request->nik,
+            'nisn'      => $request->nisn,
+            'kelamin'   => $request->kelamin,
+            'ibu'       => $request->ibu,
+            'ayah'      => $request->ayah,
+            'tptlahir'  => $request->tptlahir,
+            'tgllahir'  => $request->tgllahir,
+            'alamat'    => $request->alamat,
+            'kamar'     => $request->kamar,
+            'kls_formal'=> $request->klsformal,
+            'kls_diniyah'=> $request->klsdiniyah,
+            'hp_ayah'   => $request->hpayah,
+            'hp_ibu'    => $request->hpibu,
+            'tahun_daftar' => $request->thndaftar
+        ]);
+        return redirect('dashboard/data-santri');
+        
     }
 
 }

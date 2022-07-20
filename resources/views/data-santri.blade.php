@@ -111,7 +111,7 @@
                         kamar
                     </th>
                     <th scope="col" class="py-3 px-6">
-                        <span class="sr-only">Edit</span>
+                        <span class="sr-only">Edit/Hapus</span>
                     </th>
                 </tr>
             </thead>
@@ -142,9 +142,9 @@
                             {{ $data->kamar }}
                         </td>
                         <td class="py-4 px-6 text-right">
-                            <a href="#"
+                            <a href="/dashboard/data-santri/edit/{{ $data->id }}"
                                 class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                            <a href="#"
+                            <a href="/dashboard/data-santri/delete/{{ $data->id }}"
                                 class="font-medium text-warning-600 dark:text-blue-500 hover:underline">Hapus</a>
                         </td>
                     </tr>
