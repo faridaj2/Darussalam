@@ -144,7 +144,7 @@
                         <td class="py-4 px-6 text-right">
                             <a href="/dashboard/data-santri/edit/{{ $data->id }}"
                                 class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                            <a href="/dashboard/data-santri/delete/{{ $data->id }}"
+                            <a href="#m1" onclick="getData(this)" data-id="{{ $data->id }}" data-name="{{ $data->nama }}" rel="modal:open"
                                 class="font-medium text-warning-600 dark:text-blue-500 hover:underline">Hapus</a>
                         </td>
                     </tr>
@@ -156,9 +156,27 @@
     <div class="bg-white rounded-lg p-10">
         {{ $siswa->links() }}
     </div>
+    <div id="m1" class="modal p-3">
+        <h1 class="text-center">Anda yakin akan menghapus?</h1>
+        <div id="namePlace" class="text-center font-semibold mb-3 mt-3"></div>
+        <div class="flex justify-center">
+            <a href="#" rel="modal:close" class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-full border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Batal</a>
+            <a href="/dashboard/data-santri/delete/" id="deleteBtn" class="text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Tetap Hapus</a>
+        </div>
+    </div>
 
+<script>
+    function getData(me){
+            let id = me.getAttribute('data-id');
+            let name = me.getAttribute('data-name');
 
-
+            document.getElementById('namePlace').innerHTML = name;
+            document.getElementById('deleteBtn').setAttribute('href', '/dashboard/data-santri/delete/'+id);
+        }
+    $(document).ready(function(){
+        
+    });
+</script>
 
 
 </x-app-layout>
