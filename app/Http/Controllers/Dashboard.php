@@ -98,5 +98,31 @@ class Dashboard extends BaseController
 
         return view('detail', $data);
     }
+    public function inputData(){
+        return view('input-data');
+    }
+    public function inputDataStore(Request $request){
+
+        $db = new student;
+        $db::create([
+            'nis'       => $request->nis,
+            'nama'      => $request->nama,
+            'no_kk'     => $request->kk,
+            'no_nik'    => $request->nik,
+            'nisn'      => $request->nisn,
+            'kelamin'   => $request->kelamin,
+            'ibu'       => $request->ibu,
+            'ayah'      => $request->ayah,
+            'tptlahir'  => $request->tptlahir,
+            'tgllahir'  => $request->tgllahir,
+            'alamat'    => $request->alamat,
+            'kamar'     => $request->kamar,
+            'kls_formal'=> $request->klsformal,
+            'kls_diniyah'=> $request->klsdiniyah,
+            'hp_ayah'   => $request->hpayah,
+            'hp_ibu'    => $request->hpibu,
+            'tahun_daftar' => $request->thndaftar
+        ]);
+    }
 
 }

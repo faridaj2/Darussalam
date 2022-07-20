@@ -23,10 +23,15 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 
-Route::get('/dashboard/data-santri', [Dashboard::class, 'view'])->middleware(['auth'])->name('dashboard/data-santri');
-Route::post('/dashboard/data-santri/store', [Dashboard::class, 'store'])->middleware(['auth']);
-Route::get('/dashboard/data-santri/cari', [Dashboard::class, 'search'])->middleware(['auth']);
-Route::get('/dashboard/data-santri/detail/{any}', [Dashboard::class, 'detail'])->middleware(['auth']);
+Route::middleware(['auth'])->group(function(){
+    Route::get('/dashboard/data-santri', [Dashboard::class, 'view'])->name('dashboard/data-santri');
+    Route::post('/dashboard/data-santri/store', [Dashboard::class, 'store']);
+    Route::get('/dashboard/data-santri/cari', [Dashboard::class, 'search']);
+    Route::get('/dashboard/data-santri/detail/{any}', [Dashboard::class, 'detail']);
+    Route::get('/dashboard/data-santri/input-data/', [Dashboard::class, 'inputData']);
+    Route::post('/dashboard/data-santri/input-data/', [Dashboard::class, 'inputDataStore']);
+    
 
+});
 
 require __DIR__.'/auth.php';
