@@ -32,6 +32,7 @@ class CreateStudentsTable extends Migration
             $table->string('hp_ayah')->nullable();
             $table->string('hp_ibu')->nullable();
             $table->date('tahun_daftar')->nullable();
+            $table->string('image_name')->nullable();
             $table->timestamps();
         });
     }
