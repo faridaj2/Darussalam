@@ -93,25 +93,35 @@
                     class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">No. HP Ibu</label>
             </div>
             <div class="relative z-0 mb-6 w-full group">
-                <input type="text " name="klsdiniyah" id="floating_email"
-                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                    placeholder=" " value="{{ $siswa->kls_diniyah }}">
-                <label for="floating_email"
-                    class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Kelas Diniyah</label>
+                Kelas Diniyah <select name="klsdiniyah" id="" class="bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0">
+                    <option value="1 ULA" @php echo $siswa->kls_diniyah   == '1 ULA'? 'selected': ''@endphp>1 ULA</option>
+                    <option value="2 ULA" @php echo $siswa->kls_diniyah   == '2 ULA'? 'selected': ''@endphp>2 ULA</option>
+                    <option value="3 ULA" @php echo $siswa->kls_diniyah   == '3 ULA'? 'selected': ''@endphp>3 ULA</option>
+                    <option value="4 ULA" @php echo $siswa->kls_diniyah   == '4 ULA'? 'selected': ''@endphp>4 ULA</option>
+                    <option value="1 WUSTHO" @php echo $siswa->kls_diniyah   == '1 WUSTHO'? 'selected': ''@endphp>1 WUSTHO</option>
+                    <option value="2 WUSTHO" @php echo $siswa->kls_diniyah   == '2 WUSTHO'? 'selected': ''@endphp>2 WUSTHO</option>
+                    <option value="1 ULYA" @php echo $siswa->kls_diniyah   == '1 ULYA'? 'selected': ''@endphp>1 ULYA</option>
+                    <option value="2 ULYA" @php echo $siswa->kls_diniyah   == '2 ULYA'? 'selected': ''@endphp>2 ULYA</option>
+                </select>
             </div>
             <div class="relative z-0 mb-6 w-full group">
-                <input type="text " name="klsformal" id="floating_email"
-                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                    placeholder=" " value="{{ $siswa->kls_formal }}">
-                <label for="floating_email"
-                    class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Kelas Formal</label>
+                Kelas Formal <select name="klsformal" id="" class="bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0">
+                    <option value="1 SMP"  @php echo $siswa->kls_formal   == '1 SMP'? 'selected': ''@endphp>1 SMP</option>
+                    <option value="2 SMP" @php echo $siswa->kls_formal   == '2 SMP'? 'selected': ''@endphp>2 SMP</option>
+                    <option value="3 SMP" @php echo $siswa->kls_formal   == '3 SMP'? 'selected': ''@endphp>3 SMP</option>
+                    <option value="1 SMK" @php echo $siswa->kls_formal   == '1 SMK'? 'selected': ''@endphp>1 SMK</option>
+                    <option value="2 SMK" @php echo $siswa->kls_formal   == '2 SMK'? 'selected': ''@endphp>2 SMK</option>
+                    <option value="3 SMK" @php echo $siswa->kls_formal   == '3 SMK'? 'selected': ''@endphp>3 SMK</option>
+                </select>    
             </div>
             <div class="relative z-0 mb-6 w-full group">
-                <input type="text " name="kamar" id="floating_email"
-                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                    placeholder=" " value="{{ $siswa->kamar }}">
-                <label for="floating_email"
-                    class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Kamar</label>
+                Kamar <select name="kamar" id="" class="bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0">
+                    <option value="A. 1" @php echo $siswa->kamar   == 'A. 1'? 'selected': ''@endphp>A. 1</option>
+                    <option value="A. 2" @php echo $siswa->kamar   == 'A. 2'? 'selected': ''@endphp>A. 2</option>
+                    <option value="PUTRI" @php echo $siswa->kamar   == 'PUTRI'? 'selected': ''@endphp>PUTRI</option>
+                    <option value="PENGURUS" @php echo $siswa->kamar   == 'PENGURUS'? 'selected': ''@endphp>PENGURUS</option>
+                    <option value="EMBEL" @php echo $siswa->kamar   == 'A. 1'? 'EMBEL': ''@endphp>EMBEL</option>
+                   </select>
             </div>
             <div class="relative z-0 mb-6 w-full group">
                 <input type="date" name="thndaftar" id="floating_email" disabled
