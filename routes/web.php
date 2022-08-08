@@ -1,7 +1,12 @@
 <?php
 
 use App\Http\Controllers\Dashboard;
+use App\Models\student;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+use PhpOffice\PhpSpreadsheet\Worksheet\Row;
+use Yajra\Datatables\Datatables;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,8 +38,30 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/dashboard/data-santri/delete/{id}/', [Dashboard::class, 'deleteData']);
     Route::get('/dashboard/data-santri/edit/{id}/', [Dashboard::class, 'editData']);
     Route::post('/dashboard/data-santri/editData/', [Dashboard::class, 'editDataStore']);
+    Route::get('/dashboard/mass-data', [Dashboard::class, 'getData']);
     
 
 });
+
+Route::get('getUser', function (Request $request) {
+    if ($request->ajax()) {
+            $data = student::get();
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn('name', function($row){
+                    $btnname = '<a href="/dashboard/data-santri/detail/'.$row->id.'" class="edit btn btn-success btn-sm">'.$row->nama.'</a>';
+
+                    return $btnname;
+                })
+                ->addColumn('action', function($row){
+                    $actionBtn = '<a href="/dashboard/data-santri/edit/'.$row->id.'" class="edit btn btn-success btn-sm">Edit</a> <a href="#m1" onclick="getData(this)" data-id="'.$row->id.'"
+                    data-name="'.$row->nama.'" rel="modal:open" class="">Delete</a>';
+
+                    return $actionBtn;
+                })
+                ->rawColumns(['action', 'name'])
+                ->make(true);
+        }
+})->name('user.index'); 
 
 require __DIR__.'/auth.php';

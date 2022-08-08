@@ -53,43 +53,14 @@
 
     {{-- Data --}}
 
-    <form class="bg-white rounded-lg p-10" method="GET" action="/dashboard/data-santri/cari">
-        <div class="flex px-3">
+    
 
+    <div id="data-filter" class="flex justify-between p-2">
 
-            <label for="countries" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-gray-300">Select an
-                option</label>
-            <select name="type"
-                class="w-20 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-l-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                <option selected="nama" value="nama">nama</option>
-                <option value="nis">NIS</option>
+    </div>
+    <div class="overflow-x-auto relative">
+        <table id="yajra" class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
 
-            </select>
-
-            <div class="relative w-full">
-                <input name="text" type="search" id="search-dropdown"
-                    class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-r-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500"
-                    placeholder="Cari Siswa" required="">
-                <button type="submit"
-                    class="absolute top-0 right-0 p-2.5 text-sm font-medium text-white bg-blue-700 rounded-r-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                    <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                    </svg>
-                    <span class="sr-only">Search</span>
-                </button>
-            </div>
-        </div>
-    </form>
-
-
-    <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
-        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-            <caption
-                class="p-5 text-lg font-semibold text-left text-gray-900 bg-white dark:text-white dark:bg-gray-800">
-                Data Siswa/Siswi
-            </caption>
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
                     <th scope="col" class="py-3 px-6">
@@ -115,68 +86,95 @@
                     </th>
                 </tr>
             </thead>
-            <tbody>
-                @foreach ($siswa as $data)
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <td class="py-4 px-6">
-                            {{ ($siswa->currentPage() - 1) * $siswa->perPage() + $loop->iteration }}
-                        </td>
-                        <th scope="row"
-                            class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            <a href="/dashboard/data-santri/detail/{{ $data->id }}">{{ $data->nama }}</a>
-                        </th>
-                        <td class="py-4 px-6">
-                            {{ $data->nis }}
-                        </td>
-                        <td class="py-4 px-6">
-                            {{ $data->ayah }}
-                        </td>
-                        <td class="py-4 px-6">
-                            @if ($data->kelamin == 'P')
-                                Santri Putri
-                            @else
-                                Santri Putra
-                            @endif
-                        </td>
-                        <td class="py-4 px-6">
-                            {{ $data->kamar }}
-                        </td>
-                        <td class="py-4 px-6 text-right">
-                            <a href="/dashboard/data-santri/edit/{{ $data->id }}"
-                                class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                            <a href="#m1" onclick="getData(this)" data-id="{{ $data->id }}" data-name="{{ $data->nama }}" rel="modal:open"
-                                class="font-medium text-warning-600 dark:text-blue-500 hover:underline">Hapus</a>
-                        </td>
-                    </tr>
-                @endforeach
+            <tbody class="body-table">
+
             </tbody>
         </table>
     </div>
+    <div id="data-paginate" class="flex justify-between p-2"></div>
 
-    <div class="bg-white rounded-lg p-10">
-        {{ $siswa->links() }}
-    </div>
     <div id="m1" class="modal p-3">
         <h1 class="text-center">Anda yakin akan menghapus?</h1>
         <div id="namePlace" class="text-center font-semibold mb-3 mt-3"></div>
         <div class="flex justify-center">
-            <a href="#" rel="modal:close" class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-full border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Batal</a>
-            <a href="/dashboard/data-santri/delete/" id="deleteBtn" class="text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Tetap Hapus</a>
+            <a href="#" rel="modal:close"
+                class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-full border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Batal</a>
+            <a href="/dashboard/data-santri/delete/" id="deleteBtn"
+                class="text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Tetap
+                Hapus</a>
         </div>
     </div>
+    
 
-<script>
-    function getData(me){
-            let id = me.getAttribute('data-id');
-            let name = me.getAttribute('data-name');
 
-            document.getElementById('namePlace').innerHTML = name;
-            document.getElementById('deleteBtn').setAttribute('href', '/dashboard/data-santri/delete/'+id);
-        }
-    $(document).ready(function(){
-        
-    });
-</script>
+
+    <x-slot name="script">
+        <script src="{{ asset('js/datatable.js') }}"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                function getData(me) {
+                    let id = $(me).attr('data-id');
+                    let name = $(me).attr('data-name');
+
+                    $('#namePlace').html(name);
+                    $('#deleteBtn').attr('href', '/dashboard/data-santri/delete/' + id);
+                }
+                window.getData = getData;
+
+                $('#yajra').DataTable({
+                    processing: true,
+                    serverSide: true,
+                    ajax: "{{ route('user.index') }}",
+                    columns: [{
+                            data: 'DT_RowIndex',
+                            name: 'DT_RowIndex'
+                        },
+                        {
+                            data: 'name',
+                            name: 'name',
+                            orderable: true,
+                            searchable: true
+                        },
+                        {
+                            data: 'nis',
+                            name: 'nis'
+                        },
+                        {
+                            data: 'ayah',
+                            name: 'ayah'
+                        },
+                        {
+                            data: 'kelamin',
+                            name: 'kelamin'
+                        },
+                        {
+                            data: 'kamar',
+                            name: 'kamar'
+                        },
+                        {
+                            data: 'action',
+                            name: 'action',
+                            orderable: true,
+                            searchable: true
+                        },
+                    ],
+                    drawCallback: function(){
+                        $('#yajra_length').appendTo('#data-filter');
+                        $('#yajra_filter').appendTo('#data-filter');
+                        $('#yajra_paginate').appendTo('#data-paginate');
+                        $('#yajra_info').appendTo('#data-paginate');
+                        $('#yajra_filter > label > input').focus();
+                    }
+
+
+                });
+
+                
+            });
+
+            
+        </script>
+    </x-slot>
 
 
 </x-app-layout>

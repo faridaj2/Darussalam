@@ -186,7 +186,9 @@
                     <!-- End of Experience and education grid -->
                 </div>
 
-
+                <x-slot name="script">
+                    Oke gen
+                </x-slot>
 
 
 
