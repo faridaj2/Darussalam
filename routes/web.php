@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Dashboard;
+use App\Http\Controllers\Data;
+use App\Http\Controllers\MoneyDepositController;
 use App\Models\student;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
@@ -29,6 +31,7 @@ Route::get('/dashboard', function () {
 
 
 Route::middleware(['auth'])->group(function(){
+    //Data Santri
     Route::get('/dashboard/data-santri', [Dashboard::class, 'view'])->name('dashboard/data-santri');
     Route::post('/dashboard/data-santri/store', [Dashboard::class, 'store']);
     Route::get('/dashboard/data-santri/cari', [Dashboard::class, 'search']);
@@ -39,10 +42,16 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/dashboard/data-santri/edit/{id}/', [Dashboard::class, 'editData']);
     Route::post('/dashboard/data-santri/editData/', [Dashboard::class, 'editDataStore']);
     Route::get('/dashboard/mass-data', [Dashboard::class, 'getData']);
-    
+
+    //Penitipan Uang    
+    Route::get('/dashboard/penitipan-uang', [MoneyDepositController::class, 'index'])->name('dashboard/penitipan-uang');
+    Route::post('/dashboard/penitipan-uang/tambah-kategori', [MoneyDepositController::class, 'createCategory']);
+    Route::get('/dashboard/penitipan-uang/{slug}/hapus', [MoneyDepositController::class, 'destroy']);
 
 });
 
+
+//Download Data Santri Dalam Eccell
 Route::get('getUser', function (Request $request) {
     if ($request->ajax()) {
             $data = student::get();

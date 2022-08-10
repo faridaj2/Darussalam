@@ -178,8 +178,10 @@ class ComposerStaticInitb8b1dc15f011e19a045641785ae6b413
         ),
         'C' => 
         array (
+            'Cviebrock\\EloquentSluggable\\' => 28,
             'Cron\\' => 5,
             'Complex\\' => 8,
+            'Cocur\\Slugify\\' => 14,
             'Carbon\\' => 7,
         ),
         'B' => 
@@ -522,6 +524,10 @@ class ComposerStaticInitb8b1dc15f011e19a045641785ae6b413
         array (
             0 => __DIR__ . '/../..' . '/database/factories',
         ),
+        'Cviebrock\\EloquentSluggable\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/cviebrock/eloquent-sluggable/src',
+        ),
         'Cron\\' => 
         array (
             0 => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron',
@@ -529,6 +535,10 @@ class ComposerStaticInitb8b1dc15f011e19a045641785ae6b413
         'Complex\\' => 
         array (
             0 => __DIR__ . '/..' . '/markbaker/complex/classes/src',
+        ),
+        'Cocur\\Slugify\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/cocur/slugify/src',
         ),
         'Carbon\\' => 
         array (
@@ -578,6 +588,8 @@ class ComposerStaticInitb8b1dc15f011e19a045641785ae6b413
         'App\\Http\\Controllers\\Auth\\VerifyEmailController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerifyEmailController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\Dashboard' => __DIR__ . '/../..' . '/app/Http/Controllers/Dashboard.php',
+        'App\\Http\\Controllers\\Data' => __DIR__ . '/../..' . '/app/Http/Controllers/Data.php',
+        'App\\Http\\Controllers\\MoneyDepositController' => __DIR__ . '/../..' . '/app/Http/Controllers/MoneyDepositController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
@@ -588,8 +600,12 @@ class ComposerStaticInitb8b1dc15f011e19a045641785ae6b413
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Http\\Requests\\Auth\\LoginRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Auth/LoginRequest.php',
+        'App\\Http\\Requests\\Storemoney_depositRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Storemoney_depositRequest.php',
+        'App\\Http\\Requests\\Updatemoney_depositRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Updatemoney_depositRequest.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
+        'App\\Models\\money_deposit' => __DIR__ . '/../..' . '/app/Models/money_deposit.php',
         'App\\Models\\student' => __DIR__ . '/../..' . '/app/Models/student.php',
+        'App\\Policies\\MoneyDepositPolicy' => __DIR__ . '/../..' . '/app/Policies/MoneyDepositPolicy.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
@@ -694,6 +710,25 @@ class ComposerStaticInitb8b1dc15f011e19a045641785ae6b413
         'Carbon\\Translator' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Translator.php',
         'Carbon\\TranslatorImmutable' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/TranslatorImmutable.php',
         'Carbon\\TranslatorStrongTypeInterface' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/TranslatorStrongTypeInterface.php',
+        'Cocur\\Slugify\\Bridge\\Laravel\\SlugifyFacade' => __DIR__ . '/..' . '/cocur/slugify/src/Bridge/Laravel/SlugifyFacade.php',
+        'Cocur\\Slugify\\Bridge\\Laravel\\SlugifyServiceProvider' => __DIR__ . '/..' . '/cocur/slugify/src/Bridge/Laravel/SlugifyServiceProvider.php',
+        'Cocur\\Slugify\\Bridge\\Latte\\SlugifyHelper' => __DIR__ . '/..' . '/cocur/slugify/src/Bridge/Latte/SlugifyHelper.php',
+        'Cocur\\Slugify\\Bridge\\League\\SlugifyServiceProvider' => __DIR__ . '/..' . '/cocur/slugify/src/Bridge/League/SlugifyServiceProvider.php',
+        'Cocur\\Slugify\\Bridge\\Nette\\SlugifyExtension' => __DIR__ . '/..' . '/cocur/slugify/src/Bridge/Nette/SlugifyExtension.php',
+        'Cocur\\Slugify\\Bridge\\Plum\\SlugifyConverter' => __DIR__ . '/..' . '/cocur/slugify/src/Bridge/Plum/SlugifyConverter.php',
+        'Cocur\\Slugify\\Bridge\\Symfony\\CocurSlugifyBundle' => __DIR__ . '/..' . '/cocur/slugify/src/Bridge/Symfony/CocurSlugifyBundle.php',
+        'Cocur\\Slugify\\Bridge\\Symfony\\CocurSlugifyExtension' => __DIR__ . '/..' . '/cocur/slugify/src/Bridge/Symfony/CocurSlugifyExtension.php',
+        'Cocur\\Slugify\\Bridge\\Symfony\\Configuration' => __DIR__ . '/..' . '/cocur/slugify/src/Bridge/Symfony/Configuration.php',
+        'Cocur\\Slugify\\Bridge\\Twig\\SlugifyExtension' => __DIR__ . '/..' . '/cocur/slugify/src/Bridge/Twig/SlugifyExtension.php',
+        'Cocur\\Slugify\\Bridge\\ZF2\\Module' => __DIR__ . '/..' . '/cocur/slugify/src/Bridge/ZF2/Module.php',
+        'Cocur\\Slugify\\Bridge\\ZF2\\SlugifyService' => __DIR__ . '/..' . '/cocur/slugify/src/Bridge/ZF2/SlugifyService.php',
+        'Cocur\\Slugify\\Bridge\\ZF2\\SlugifyViewHelper' => __DIR__ . '/..' . '/cocur/slugify/src/Bridge/ZF2/SlugifyViewHelper.php',
+        'Cocur\\Slugify\\Bridge\\ZF2\\SlugifyViewHelperFactory' => __DIR__ . '/..' . '/cocur/slugify/src/Bridge/ZF2/SlugifyViewHelperFactory.php',
+        'Cocur\\Slugify\\RuleProvider\\DefaultRuleProvider' => __DIR__ . '/..' . '/cocur/slugify/src/RuleProvider/DefaultRuleProvider.php',
+        'Cocur\\Slugify\\RuleProvider\\FileRuleProvider' => __DIR__ . '/..' . '/cocur/slugify/src/RuleProvider/FileRuleProvider.php',
+        'Cocur\\Slugify\\RuleProvider\\RuleProviderInterface' => __DIR__ . '/..' . '/cocur/slugify/src/RuleProvider/RuleProviderInterface.php',
+        'Cocur\\Slugify\\Slugify' => __DIR__ . '/..' . '/cocur/slugify/src/Slugify.php',
+        'Cocur\\Slugify\\SlugifyInterface' => __DIR__ . '/..' . '/cocur/slugify/src/SlugifyInterface.php',
         'Complex\\Complex' => __DIR__ . '/..' . '/markbaker/complex/classes/src/Complex.php',
         'Complex\\Exception' => __DIR__ . '/..' . '/markbaker/complex/classes/src/Exception.php',
         'Complex\\Functions' => __DIR__ . '/..' . '/markbaker/complex/classes/src/Functions.php',
@@ -709,8 +744,15 @@ class ComposerStaticInitb8b1dc15f011e19a045641785ae6b413
         'Cron\\HoursField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/HoursField.php',
         'Cron\\MinutesField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/MinutesField.php',
         'Cron\\MonthField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/MonthField.php',
+        'Cviebrock\\EloquentSluggable\\ServiceProvider' => __DIR__ . '/..' . '/cviebrock/eloquent-sluggable/src/ServiceProvider.php',
+        'Cviebrock\\EloquentSluggable\\Services\\SlugService' => __DIR__ . '/..' . '/cviebrock/eloquent-sluggable/src/Services/SlugService.php',
+        'Cviebrock\\EloquentSluggable\\Sluggable' => __DIR__ . '/..' . '/cviebrock/eloquent-sluggable/src/Sluggable.php',
+        'Cviebrock\\EloquentSluggable\\SluggableObserver' => __DIR__ . '/..' . '/cviebrock/eloquent-sluggable/src/SluggableObserver.php',
+        'Cviebrock\\EloquentSluggable\\SluggableScopeHelpers' => __DIR__ . '/..' . '/cviebrock/eloquent-sluggable/src/SluggableScopeHelpers.php',
+        'Database\\Factories\\MoneyDepositFactory' => __DIR__ . '/../..' . '/database/factories/MoneyDepositFactory.php',
         'Database\\Factories\\UserFactory' => __DIR__ . '/../..' . '/database/factories/UserFactory.php',
         'Database\\Seeders\\DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeders/DatabaseSeeder.php',
+        'Database\\Seeders\\MoneyDepositSeeder' => __DIR__ . '/../..' . '/database/seeders/MoneyDepositSeeder.php',
         'DeepCopy\\DeepCopy' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/DeepCopy.php',
         'DeepCopy\\Exception\\CloneException' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/Exception/CloneException.php',
         'DeepCopy\\Exception\\PropertyException' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/Exception/PropertyException.php',

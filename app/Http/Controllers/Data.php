@@ -19,5 +19,10 @@ class Data extends Controller
      * @return \Illuminate\Http\Response
      */
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
-    
+    public function index(){
+        return view('penitipan-uang');
+    }
+    public function storeKategori(Request $request){
+        dd($request);
+    }
 }

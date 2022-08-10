@@ -3,7 +3,7 @@
         'name' => 'laravel/laravel',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '4241adf09b0eee16cc47ee187df561dcc24f8d66',
+        'reference' => '3b97f82ec0cf1bb1d97dfed61cbfce05582e6062',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -28,11 +28,29 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'cocur/slugify' => array(
+            'pretty_version' => 'v4.1.0',
+            'version' => '4.1.0.0',
+            'reference' => '2611e6081dbbb05837a16ed339c0451923d4046e',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../cocur/slugify',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'cordoval/hamcrest-php' => array(
             'dev_requirement' => true,
             'replaced' => array(
                 0 => '*',
             ),
+        ),
+        'cviebrock/eloquent-sluggable' => array(
+            'pretty_version' => '8.0.8',
+            'version' => '8.0.8.0',
+            'reference' => '16e21db24d80180f870c3c7c4faf3d3af23f4117',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../cviebrock/eloquent-sluggable',
+            'aliases' => array(),
+            'dev_requirement' => false,
         ),
         'davedevelopment/hamcrest-php' => array(
             'dev_requirement' => true,
@@ -415,7 +433,7 @@
         'laravel/laravel' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '4241adf09b0eee16cc47ee187df561dcc24f8d66',
+            'reference' => '3b97f82ec0cf1bb1d97dfed61cbfce05582e6062',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
