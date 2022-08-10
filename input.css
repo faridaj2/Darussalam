@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 .body-table tr{
     @apply h-10;
 }

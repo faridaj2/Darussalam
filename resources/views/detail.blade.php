@@ -32,7 +32,7 @@
                         <li class="flex items-center py-3">
                             <span>Status</span>
                             <span class="ml-auto"><span
-                                    class="bg-green-500 py-1 px-2 rounded text-white text-sm">Active</span></span>
+                                    class="@php echo ($siswa->status == 'Active')?'bg-yellow-400':'bg-red-700' @endphp py-1 px-2 rounded text-white text-sm">{{ $siswa->status }}</span></span>
                         </li>
                         <li class="flex items-center py-3">
                             <span>Tahun Daftar</span>
@@ -187,7 +187,7 @@
                 </div>
 
                 <x-slot name="script">
-                    Oke gen
+                    
                 </x-slot>
 
 

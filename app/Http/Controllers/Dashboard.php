@@ -42,7 +42,7 @@ class Dashboard extends BaseController
 
         for ($i = 1; $i < count($sheet); $i++) {
             $db = new student;
-
+            
             $date_birth = \PhpOffice\PhpSpreadsheet\Shared\Date::excelToTimestamp($sheet[$i][7]);
             $date_birth = date('Y-m-d', $date_birth);
 
@@ -67,7 +67,8 @@ class Dashboard extends BaseController
                 'kls_diniyah' => $sheet[$i][13],
                 'hp_ayah'   => $sheet[$i][11],
                 'hp_ibu'    => $sheet[$i][12],
-                'tahun_daftar' => $date_sign
+                'tahun_daftar' => $date_sign,
+                'status' => $sheet[$i][18]
             ]);
         }
         return redirect('dashboard/data-santri/');
@@ -181,8 +182,8 @@ class Dashboard extends BaseController
         $sheet->setCellValue('E1', 'NOMOR NISN');
         $sheet->setCellValue('F1', 'KELAMIN');
         $sheet->setCellValue('G1', 'TEMPAT LAHIR');
-        $sheet->setCellValue('H1', 'ALAMAT');
-        $sheet->setCellValue('I1', 'TGL LAHIR');
+        $sheet->setCellValue('H1', 'TANGGAL LAHIR');
+        $sheet->setCellValue('I1', 'ALAMAT');
         $sheet->setCellValue('J1', 'AYAH');
         $sheet->setCellValue('K1', 'IBU');
         $sheet->setCellValue('L1', 'HP AYAH');
@@ -192,30 +193,42 @@ class Dashboard extends BaseController
         $sheet->setCellValue('P1', 'KAMAR');
         $sheet->setCellValue('Q1', 'TAHUN DAFTAR');
         $sheet->setCellValue('R1', 'NIS');
+        $sheet->setCellValue('S1', 'STATUS');
 
         $data = student::get();
         $col = 2;
         $no = 1;
 
         foreach ($data as $d) {
-            $p = date_format(date_create_from_format('Y-m-d', $d['tgllahir']), 'd-m-Y');
-            $p = strtotime($p);
-            $s = date_format(date_create_from_format('Y-m-d', $d['tahun_daftar']), 'd-m-Y');
-            $s = strtotime($s);
-            $spreadsheet->getActiveSheet()
-            ->getStyle('I' . $col)
-            ->getNumberFormat()
-            ->setFormatCode(
-                \PhpOffice\PhpSpreadsheet\Style\NumberFormat::FORMAT_DATE_YYYYMMDDSLASH
-            );
-            $spreadsheet->getActiveSheet()
-            ->getStyle('Q' . $col)
-            ->getNumberFormat()
-            ->setFormatCode(
-                \PhpOffice\PhpSpreadsheet\Style\NumberFormat::FORMAT_DATE_YYYYMMDDSLASH
-            );
+            $p = $s = null;
 
-            $cell = ['C', 'D', 'E', 'L', 'M','R'];
+            if($d['tgllahir'] != NULL){
+                $p = date_format(date_create_from_format('Y-m-d', $d['tgllahir']), 'd-m-Y');
+                $p = strtotime($p);
+                $spreadsheet->getActiveSheet()
+                ->getStyle('H' . $col)
+                ->getNumberFormat()
+                ->setFormatCode(
+                    \PhpOffice\PhpSpreadsheet\Style\NumberFormat::FORMAT_DATE_YYYYMMDDSLASH
+                );
+                $p = \PhpOffice\PhpSpreadsheet\Shared\Date::PHPToExcel($p);
+            }
+            if($d['tahun_daftar'] != NULL){
+                $s = date_format(date_create_from_format('Y-m-d', $d['tahun_daftar']), 'd-m-Y');
+                $s = strtotime($s);
+                $spreadsheet->getActiveSheet()
+                ->getStyle('Q' . $col)
+                ->getNumberFormat()
+                ->setFormatCode(
+                    \PhpOffice\PhpSpreadsheet\Style\NumberFormat::FORMAT_DATE_YYYYMMDDSLASH
+                );
+                $s = \PhpOffice\PhpSpreadsheet\Shared\Date::PHPToExcel($s);
+            }
+
+            
+            
+            
+            $cell = ['C', 'D', 'E', 'L', 'M', 'R'];
 
             foreach ($cell as $n) {
                 $spreadsheet->getActiveSheet()
@@ -229,22 +242,17 @@ class Dashboard extends BaseController
 
 
 
-            $p = \PhpOffice\PhpSpreadsheet\Shared\Date::PHPToExcel($p);
-            $s = \PhpOffice\PhpSpreadsheet\Shared\Date::PHPToExcel($s);
-
-
-
-
-
             $sheet->setCellValue('A' . $col, $no++);
             $sheet->setCellValue('B' . $col, $d['nama']);
-            $sheet->setCellValue('C' . $col, $d['no_kk']);
-            $sheet->setCellValue('D' . $col, $d['no_nik']);
-            $sheet->setCellValue('E' . $col, $d['nisn']);
+
+            $sheet->setCellValueExplicit('C' . $col, $d['no_kk'], \PhpOffice\PhpSpreadsheet\Cell\DataType::TYPE_STRING);
+
+            $sheet->setCellValueExplicit('D' . $col, $d['no_nik'], \PhpOffice\PhpSpreadsheet\Cell\DataType::TYPE_STRING);
+            $sheet->setCellValueExplicit('E' . $col, $d['nisn'], \PhpOffice\PhpSpreadsheet\Cell\DataType::TYPE_STRING);
             $sheet->setCellValue('F' . $col, $d['kelamin']);
             $sheet->setCellValue('G' . $col, $d['tptlahir']);
-            $sheet->setCellValue('H' . $col, $d['alamat']);
-            $sheet->setCellValue('I' . $col, $p);
+            $sheet->setCellValue('H' . $col, $p);
+            $sheet->setCellValue('I' . $col, $d['alamat']);
             $sheet->setCellValue('J' . $col, $d['ayah']);
             $sheet->setCellValue('K' . $col, $d['ibu']);
             $sheet->setCellValue('L' . $col, $d['hp_ayah']);
@@ -253,8 +261,12 @@ class Dashboard extends BaseController
             $sheet->setCellValue('O' . $col, $d['kls_formal']);
             $sheet->setCellValue('P' . $col, $d['kamar']);
             $sheet->setCellValue('Q' . $col, $s);
-            $sheet->setCellValue('R' . $col, $d['nis']);
+            $sheet->setCellValueExplicit('R' . $col, $d['nis'], \PhpOffice\PhpSpreadsheet\Cell\DataType::TYPE_STRING);
+            $sheet->setCellValue('S' . $col, $d['status']);
+
+
             $col++;
+            $sheet->getDefaultRowDimension()->setRowHeight(-1);
         }
 
 
