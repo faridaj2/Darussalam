@@ -47,6 +47,8 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/dashboard/penitipan-uang', [MoneyDepositController::class, 'index'])->name('dashboard/penitipan-uang');
     Route::post('/dashboard/penitipan-uang/tambah-kategori', [MoneyDepositController::class, 'createCategory']);
     Route::get('/dashboard/penitipan-uang/{slug}/hapus', [MoneyDepositController::class, 'destroy']);
+    Route::get('/dashboard/penitipan-uang/{slug}', [MoneyDepositController::class, 'showKategori']);
+
 
 });
 

@@ -41,6 +41,9 @@ class MoneyDepositController extends Controller
         
 
     }
+    public function showKategori(Request $request,$slug){
+        return view('kategori_detail');
+    }
 
 
 
