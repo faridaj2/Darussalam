@@ -37,7 +37,9 @@
                             </td>
                             <td class="py-4 px-6">
                                 <a href="#"
-                                    class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                                    class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Withdrawl</a>
+                                <a href="#"
+                                    class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Depo</a>
                             </td>
                         </tr>
                     @endforeach
