@@ -14,4 +14,7 @@
             </div>
         </div>
     </div>
+    <x-slot name="script">
+        Oke gen
+    </x-slot>
 </x-app-layout>

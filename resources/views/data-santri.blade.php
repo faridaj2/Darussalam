@@ -12,14 +12,184 @@
                     <a href="/dashboard/data-santri/input-data/">Input Data Manual</a>
                 </button>
                 <button type="button"
-                    class="py-2 px-4 text-sm font-medium text-gray-900 bg-white rounded-r-md border border-t border-b border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
+                    class="py-2 px-4 text-sm font-medium text-gray-900 bg-white border border-t border-b border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
                     <a href="/dashboard/data-santri">Tampikan Semua</a>
                 </button>
 
+                <button id="dropdownCheckboxButton" data-dropdown-toggle="dropdownDefaultCheckbox"
+                    class="py-2 px-4 text-sm font-medium text-gray-900 bg-white rounded-r-md border border-t border-b border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white"
+                    type="button">Colom <svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg></button>
+
+                <!-- Dropdown menu -->
+                <div id="dropdownDefaultCheckbox"
+                    class="hidden z-10 w-48 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
+                    <ul class="p-3 space-y-3 text-sm text-gray-700 dark:text-gray-200"
+                        aria-labelledby="dropdownCheckboxButton">
+                        <li>
+                            <div class="flex items-center">
+                                <input onchange="togle(this)" id="checkbox-item-1" type="checkbox" value="1"
+                                    class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                                <label for="checkbox-item-1"
+                                    class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Nama</label>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex items-center">
+                                <input onchange="togle(this)" checked id="checkbox-item-2" type="checkbox"
+                                    value="2"
+                                    class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                                <label for="checkbox-item-2"
+                                    class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">No. KK</label>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex items-center">
+                                <input onchange="togle(this)" checked id="checkbox-item-3" type="checkbox"
+                                    value="3"
+                                    class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                                <label for="checkbox-item-3"
+                                    class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">No. NIK</label>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex items-center">
+                                <input onchange="togle(this)" checked id="checkbox-item-4" type="checkbox"
+                                    value="4"
+                                    class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                                <label for="checkbox-item-4"
+                                    class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">No. NISN</label>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex items-center">
+                                <input onchange="togle(this)" checked id="checkbox-item-5" type="checkbox"
+                                    value="5"
+                                    class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                                <label for="checkbox-item-5"
+                                    class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Kelamin</label>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex items-center">
+                                <input onchange="togle(this)" checked id="checkbox-item-6" type="checkbox"
+                                    value="6"
+                                    class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                                <label for="checkbox-item-6"
+                                    class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Tempat
+                                    Lahir</label>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex items-center">
+                                <input onchange="togle(this)" checked id="checkbox-item-7" type="checkbox"
+                                    value="7"
+                                    class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                                <label for="checkbox-item-7"
+                                    class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Tanggal
+                                    Lahir</label>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex items-center">
+                                <input onchange="togle(this)" id="checkbox-item-8" type="checkbox" value="8"
+                                    class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                                <label for="checkbox-item-8"
+                                    class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Alamat</label>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex items-center">
+                                <input onchange="togle(this)" id="checkbox-item-9" type="checkbox" value="9"
+                                    class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                                <label for="checkbox-item-9"
+                                    class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Ayah</label>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex items-center">
+                                <input onchange="togle(this)" checked id="checkbox-item-10" type="checkbox"
+                                    value="10"
+                                    class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                                <label for="checkbox-item-10"
+                                    class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Ibu</label>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex items-center">
+                                <input onchange="togle(this)" checked id="checkbox-item-11" type="checkbox"
+                                    value="11"
+                                    class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                                <label for="checkbox-item-11"
+                                    class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Hp Ayah</label>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex items-center">
+                                <input onchange="togle(this)" checked id="checkbox-item-12" type="checkbox"
+                                    value="12"
+                                    class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                                <label for="checkbox-item-12"
+                                    class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Hp Ibu</label>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex items-center">
+                                <input onchange="togle(this)" checked id="checkbox-item-13" type="checkbox"
+                                    value="13"
+                                    class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                                <label for="checkbox-item-13"
+                                    class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Kelas
+                                    Diniyah</label>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex items-center">
+                                <input onchange="togle(this)" checked id="checkbox-item-14" type="checkbox"
+                                    value="14"
+                                    class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                                <label for="checkbox-item-14"
+                                    class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Kelas
+                                    Formal</label>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex items-center">
+                                <input onchange="togle(this)" checked id="checkbox-item-15" type="checkbox"
+                                    value="15"
+                                    class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                                <label for="checkbox-item-15"
+                                    class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Kamar</label>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex items-center">
+                                <input onchange="togle(this)" checked id="checkbox-item-16" type="checkbox"
+                                    value="16"
+                                    class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                                <label for="checkbox-item-16"
+                                    class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Tahun
+                                    Daftar</label>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex items-center">
+                                <input onchange="togle(this)" id="checkbox-item-17" type="checkbox" value="17"
+                                    class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                                <label for="checkbox-item-17"
+                                    class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">NIS</label>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
 
         </h2>
     </x-slot>
+
+    <x-alert />
 
     <div class="py-12 modal" id="ex1">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -36,7 +206,8 @@
                         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                             for="file_input">Upload file</label>
                         <input aria-describedby="file_input_help" id="file_input" type="file" name="sheet">
-                        <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">Upload File Excell
+                        <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">Upload File
+                            Excell
                         </p>
 
 
@@ -50,133 +221,299 @@
     </div>
 
 
+    <form method="get" action=""
+        class="block p-6 m-3 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+        @csrf
+        <input name="data" type="text" class="hidden" id="data-array">
+        <button type="submit" name="submit" type="submit" formaction="/dashboard/data-santri/mass/delete"
+            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Delete</button>
+
+        <button id="dropdownDefault" data-dropdown-toggle="titipUang"
+            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            type="button">Penitipan Uang<svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg></button>
+        <!-- Dropdown menu -->
+        <div id="titipUang"
+            class="z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 block hidden"
+            data-popper-reference-hidden="true" data-popper-escaped="" data-popper-placement="bottom"
+            style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(316.25px, 70px);">
+            <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
+                @foreach ($money_dep as $item)
+                    <li>
+                        <button type="submit" formaction="/dashboard/penitipan-uang/{{ $item->slug }}/insert"
+                            class="block w-full text-left py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{ $item->nama_penyimpanan }}
+                        </button>
+                    </li>
+                @endforeach
+
+
+            </ul>
+        </div>
+
+    </form>
 
     {{-- Data --}}
 
-    <form class="bg-white rounded-lg p-10" method="GET" action="/dashboard/data-santri/cari">
-        <div class="flex px-3">
 
 
-            <label for="countries" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-gray-300">Select an
-                option</label>
-            <select name="type"
-                class="w-20 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-l-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                <option selected="nama" value="nama">nama</option>
-                <option value="nis">NIS</option>
+    <div class="p-2" id="">
+        <div
+            class="block p-6 bg-white rounded-lg border border-gray-200 shadow-md  dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+            <div id="data-filter" class="flex md:flex-row flex-col gap-2 md:justify-between p-2">
 
-            </select>
+            </div>
+            <div class="overflow-x-auto relative">
+                <table id="yajra" class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
 
-            <div class="relative w-full">
-                <input name="text" type="search" id="search-dropdown"
-                    class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-r-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500"
-                    placeholder="Cari Siswa" required="">
-                <button type="submit"
-                    class="absolute top-0 right-0 p-2.5 text-sm font-medium text-white bg-blue-700 rounded-r-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                    <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                    </svg>
-                    <span class="sr-only">Search</span>
-                </button>
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                        <tr>
+                            <th scope="col" class="py-3 px-6">
+                                No
+                            </th>
+                            <th scope="col" class="py-3 px-6">
+                                Nama
+                            </th>
+                            <th scope="col" class="py-3 px-6">
+                                No. KK
+                            </th>
+                            <th scope="col" class="py-3 px-6">
+                                No. NIK
+                            </th>
+                            <th scope="col" class="py-3 px-6">
+                                NISN
+                            </th>
+                            <th scope="col" class="py-3 px-6">
+                                Kelamin
+                            </th>
+                            <th scope="col" class="py-3 px-6">
+                                TEMPAT LAHIR
+                            </th>
+                            <th scope="col" class="py-3 px-6">
+                                TANGGAL LAHIR
+                            </th>
+                            <th scope="col" class="py-3 px-6">
+                                ALAMAT
+                            </th>
+                            <th scope="col" class="py-3 px-6">
+                                AYAH
+                            </th>
+                            <th scope="col" class="py-3 px-6">
+                                IBU
+                            </th>
+                            <th scope="col" class="py-3 px-6">
+                                HP AYAH
+                            </th>
+                            <th scope="col" class="py-3 px-6">
+                                HP IBU
+                            </th>
+                            <th scope="col" class="py-3 px-6">
+                                KELAS DINIYAH
+                            </th>
+                            <th scope="col" class="py-3 px-6">
+                                KELAS FORMAL
+                            </th>
+                            <th scope="col" class="py-3 px-6">
+                                KAMAR
+                            </th>
+                            <th scope="col" class="py-3 px-6">
+                                TAHUN DAFTAR
+                            </th>
+                            <th scope="col" class="py-3 px-6">
+                                NIS
+                            </th>
+                            <th scope="col" class="py-3 px-6">
+                                STATUS
+                            </th>
+                            <th scope="col" class="py-3 px-6">
+                                <span class="sr-only">Edit/Hapus</span>
+
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="body-table">
+
+                    </tbody>
+                </table>
+            </div>
+            <div id="data-paginate" class="flex md:flex-row flex-col gap-3 md:justify-between justify-center p-2">
             </div>
         </div>
-    </form>
-
-
-    <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
-        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-            <caption
-                class="p-5 text-lg font-semibold text-left text-gray-900 bg-white dark:text-white dark:bg-gray-800">
-                Data Siswa/Siswi
-            </caption>
-            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                <tr>
-                    <th scope="col" class="py-3 px-6">
-                        No
-                    </th>
-                    <th scope="col" class="py-3 px-6">
-                        Nama
-                    </th>
-                    <th scope="col" class="py-3 px-6">
-                        NIS
-                    </th>
-                    <th scope="col" class="py-3 px-6">
-                        Ayah
-                    </th>
-                    <th scope="col" class="py-3 px-6">
-                        Gender
-                    </th>
-                    <th scope="col" class="py-3 px-6">
-                        kamar
-                    </th>
-                    <th scope="col" class="py-3 px-6">
-                        <span class="sr-only">Edit/Hapus</span>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($siswa as $data)
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <td class="py-4 px-6">
-                            {{ ($siswa->currentPage() - 1) * $siswa->perPage() + $loop->iteration }}
-                        </td>
-                        <th scope="row"
-                            class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            <a href="/dashboard/data-santri/detail/{{ $data->id }}">{{ $data->nama }}</a>
-                        </th>
-                        <td class="py-4 px-6">
-                            {{ $data->nis }}
-                        </td>
-                        <td class="py-4 px-6">
-                            {{ $data->ayah }}
-                        </td>
-                        <td class="py-4 px-6">
-                            @if ($data->kelamin == 'P')
-                                Santri Putri
-                            @else
-                                Santri Putra
-                            @endif
-                        </td>
-                        <td class="py-4 px-6">
-                            {{ $data->kamar }}
-                        </td>
-                        <td class="py-4 px-6 text-right">
-                            <a href="/dashboard/data-santri/edit/{{ $data->id }}"
-                                class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                            <a href="#m1" onclick="getData(this)" data-id="{{ $data->id }}" data-name="{{ $data->nama }}" rel="modal:open"
-                                class="font-medium text-warning-600 dark:text-blue-500 hover:underline">Hapus</a>
-                        </td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
     </div>
 
-    <div class="bg-white rounded-lg p-10">
-        {{ $siswa->links() }}
-    </div>
     <div id="m1" class="modal p-3">
         <h1 class="text-center">Anda yakin akan menghapus?</h1>
         <div id="namePlace" class="text-center font-semibold mb-3 mt-3"></div>
         <div class="flex justify-center">
-            <a href="#" rel="modal:close" class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-full border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Batal</a>
-            <a href="/dashboard/data-santri/delete/" id="deleteBtn" class="text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Tetap Hapus</a>
+            <a href="#" rel="modal:close"
+                class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-full border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Batal</a>
+            <a href="/dashboard/data-santri/delete/" id="deleteBtn"
+                class="text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Tetap
+                Hapus</a>
         </div>
     </div>
 
-<script>
-    function getData(me){
-            let id = me.getAttribute('data-id');
-            let name = me.getAttribute('data-name');
-
-            document.getElementById('namePlace').innerHTML = name;
-            document.getElementById('deleteBtn').setAttribute('href', '/dashboard/data-santri/delete/'+id);
-        }
-    $(document).ready(function(){
-        
-    });
-</script>
 
 
-</x-app-layout>
+
+    <x-slot name="script">
+        <script src="{{ asset('js/datatable.js') }}"></script>
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+                var selected = [];
+
+                function getData(me) {
+                    let id = $(me).attr('data-id');
+                    let name = $(me).attr('data-name');
+
+                    $('#namePlace').html(name);
+                    $('#deleteBtn').attr('href', '/dashboard/data-santri/delete/' + id);
+                }
+                window.getData = getData;
+
+                var table = $('#yajra').DataTable({
+                    processing: true,
+                    serverSide: true,
+                    ajax: "{{ route('user.index') }}",
+                    columns: [{
+                            data: 'DT_RowIndex',
+                            name: 'DT_RowIndex'
+                        },
+                        {
+                            data: 'name',
+                            name: 'nama',
+                            orderable: true,
+                            searchable: true
+                        },
+                        {
+                            data: 'no_kk',
+                            name: 'no_kk'
+                        },
+                        {
+                            data: 'no_nik',
+                            name: 'no_nik'
+                        },
+                        {
+                            data: 'nisn',
+                            name: 'nisn'
+                        },
+                        {
+                            data: 'kelamin',
+                            name: 'kelamin'
+                        },
+                        {
+                            data: 'tptlahir',
+                            name: 'tptlahir'
+                        },
+                        {
+                            data: 'tgllahir',
+                            name: 'tgllahir'
+                        },
+                        {
+                            data: 'alamat',
+                            name: 'alamat'
+                        },
+                        {
+                            data: 'ayah',
+                            name: 'ayah'
+                        },
+                        {
+                            data: 'ibu',
+                            name: 'ibu'
+                        },
+                        {
+                            data: 'hp_ayah',
+                            name: 'hp_ayah'
+                        },
+                        {
+                            data: 'hp_ibu',
+                            name: 'hp_ibu'
+                        },
+                        {
+                            data: 'kls_diniyah',
+                            name: 'kls_diniyah'
+                        },
+                        {
+                            data: 'kls_formal',
+                            name: 'kls_formal'
+                        },
+                        {
+                            data: 'kamar',
+                            name: 'kamar'
+                        },
+                        {
+                            data: 'tahun_daftar',
+                            name: 'tahun_daftar'
+                        },
+                        {
+                            data: 'nis',
+                            name: 'nis'
+                        },
+                        {
+                            data: 'status',
+                            name: 'status'
+                        },
+                        {
+                            data: 'action',
+                            name: 'action',
+                            orderable: true,
+                            searchable: true
+                        },
+                    ],
+                    drawCallback: function() {
+                        $('#yajra_length').appendTo('#data-filter');
+                        $('#yajra_filter').appendTo('#data-filter');
+                        $('#yajra_paginate').appendTo('#data-paginate');
+                        $('#yajra_info').appendTo('#data-paginate');
+                        $('#yajra_filter > label > input').focus();
+
+                    },
+                    rowCallback: function(row, data) {
+                        if ($.inArray(data.id, selected) !== -1) {
+                            $(row).addClass('selected');
+                        }
+                    }
+
+
+                });
+
+                function togle(me) {
+                    var num = $(me).val();
+                    if (table.column(num).visible() === true) {
+                        table.column(num).visible(false);
+                    } else {
+                        table.column(num).visible(true);
+                    }
+
+                }
+
+                window.togle = togle;
+                var data = [2, 3, 4, 5, 6, 7, 10, 11, 12, 13, 14, 15];
+
+                $.each(data, function(index, value) {
+                    table.column(value).visible(false);
+                });
+
+                table.column(0).visible(true);
+                $("#yajra > tbody").on('click', 'tr', function() {
+                    var id = table.row(this).data().id;
+                    var index = $.inArray(id, selected);
+
+                    if (index === -1) {
+                        selected.push(id);
+                    } else {
+                        selected.splice(index, 1);
+                    }
+                    $(this).toggleClass('selected');
+                    $('#data-array').val(selected);
+                });
+
+            });
+        </script>
+
+    </x-slot>
+
+
+    </x-s>

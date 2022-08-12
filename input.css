@@ -1,3 +1,48 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.body-table tr{
+    @apply h-10;
+}
+#yajra_wrapper{
+    @apply p-2;
+}
+#yajra_length{
+    @apply inline-block;
+}
+#yajra_length label{
+    @apply inline-block;
+}
+#yajra_length label select{
+    @apply w-20 p-2 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500;
+}
+#yajra_filter{
+    @apply inline-block md:ml-4;
+}
+#yajra_filter label input{
+    @apply p-2 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500;
+}
+
+/* Paginate Yajra */
+#yajra_info{
+    @apply text-sm text-gray-700 dark:text-gray-400 mb-3;
+}
+#yajra_paginate{
+    @apply cursor-pointer;
+
+}
+#yajra_previous{
+    @apply py-2 px-3 leading-tight text-gray-500 bg-white rounded-l-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white;
+}
+.paginate_button{
+    @apply py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white;
+}
+.current{
+    @apply bg-slate-200;
+}
+#yajra_next{
+    @apply py-2 px-3 leading-tight text-gray-500 bg-white rounded-r-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white;
+}
+

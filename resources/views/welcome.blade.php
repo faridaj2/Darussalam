@@ -137,6 +137,9 @@
 
 
     <script src="https://unpkg.com/flowbite@1.4.7/dist/flowbite.js"></script>
+    <x-slot name="script">
+        Oke gen
+    </x-slot>
 </body>
 
 </html>

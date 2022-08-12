@@ -18,6 +18,9 @@
                     <x-nav-link :href="route('dashboard/data-santri')" :active="request()->routeIs('dashboard/data-santri')">
                         {{ __('Data Santri') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('dashboard/penitipan-uang')" :active="request()->routeIs('dashboard/penitipan-uang')">
+                        {{ __('Penitipan Uang') }}
+                    </x-nav-link>
                 </div>
                 
             </div>
@@ -72,6 +75,9 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('dashboard/data-santri')" :active="request()->routeIs('dashboard/data-santri')">
                 {{ __('Data Santri') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('dashboard/penitipan-uang')" :active="request()->routeIs('dashboard/penitipan-uang')">
+                {{ __('Penitipan Uang') }}
             </x-responsive-nav-link>
         </div>
 

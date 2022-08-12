@@ -33,6 +33,7 @@ class CreateStudentsTable extends Migration
             $table->string('hp_ibu')->nullable();
             $table->date('tahun_daftar')->nullable();
             $table->string('image_name')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }
