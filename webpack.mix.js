@@ -11,7 +11,7 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('index.js', 'public/js/app,js')
+mix.js('index.js', 'public/js/app.js')
     .postCss('input.css', 'public/css/app.js', [
         //
     ]);

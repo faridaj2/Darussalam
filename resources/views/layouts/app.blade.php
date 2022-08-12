@@ -10,7 +10,7 @@
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
         <script defer src="https://unpkg.com/alpinejs@3.10.3/dist/cdn.min.js"></script>
-        <link rel="stylesheet" href="{{ asset('css/input.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         <script src="{{ asset('js/index.js') }}"></script>
         <!-- Scripts -->
         {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
@@ -42,6 +42,7 @@
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
         {{ $script }}
+        <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
         
     </body>
 </html>

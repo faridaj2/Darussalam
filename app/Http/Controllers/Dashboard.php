@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-
-
+use App\Models\money_deposit;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -23,12 +22,12 @@ class Dashboard extends BaseController
 
     public function view()
     {
-        $db = new student;
+
 
 
 
         $data = [
-            'siswa' => $db->paginate(10)
+            'money_dep' => money_deposit::get()
         ];
         return view('data-santri', $data);
     }
@@ -42,7 +41,7 @@ class Dashboard extends BaseController
 
         for ($i = 1; $i < count($sheet); $i++) {
             $db = new student;
-            
+
             $date_birth = \PhpOffice\PhpSpreadsheet\Shared\Date::excelToTimestamp($sheet[$i][7]);
             $date_birth = date('Y-m-d', $date_birth);
 
@@ -202,32 +201,32 @@ class Dashboard extends BaseController
         foreach ($data as $d) {
             $p = $s = null;
 
-            if($d['tgllahir'] != NULL){
+            if ($d['tgllahir'] != NULL) {
                 $p = date_format(date_create_from_format('Y-m-d', $d['tgllahir']), 'd-m-Y');
                 $p = strtotime($p);
                 $spreadsheet->getActiveSheet()
-                ->getStyle('H' . $col)
-                ->getNumberFormat()
-                ->setFormatCode(
-                    \PhpOffice\PhpSpreadsheet\Style\NumberFormat::FORMAT_DATE_YYYYMMDDSLASH
-                );
+                    ->getStyle('H' . $col)
+                    ->getNumberFormat()
+                    ->setFormatCode(
+                        \PhpOffice\PhpSpreadsheet\Style\NumberFormat::FORMAT_DATE_YYYYMMDDSLASH
+                    );
                 $p = \PhpOffice\PhpSpreadsheet\Shared\Date::PHPToExcel($p);
             }
-            if($d['tahun_daftar'] != NULL){
+            if ($d['tahun_daftar'] != NULL) {
                 $s = date_format(date_create_from_format('Y-m-d', $d['tahun_daftar']), 'd-m-Y');
                 $s = strtotime($s);
                 $spreadsheet->getActiveSheet()
-                ->getStyle('Q' . $col)
-                ->getNumberFormat()
-                ->setFormatCode(
-                    \PhpOffice\PhpSpreadsheet\Style\NumberFormat::FORMAT_DATE_YYYYMMDDSLASH
-                );
+                    ->getStyle('Q' . $col)
+                    ->getNumberFormat()
+                    ->setFormatCode(
+                        \PhpOffice\PhpSpreadsheet\Style\NumberFormat::FORMAT_DATE_YYYYMMDDSLASH
+                    );
                 $s = \PhpOffice\PhpSpreadsheet\Shared\Date::PHPToExcel($s);
             }
 
-            
-            
-            
+
+
+
             $cell = ['C', 'D', 'E', 'L', 'M', 'R'];
 
             foreach ($cell as $n) {
@@ -278,5 +277,17 @@ class Dashboard extends BaseController
         header("Content-Disposition: attachment; filename=\"Data Santri.{$extension}\"");
         $writer->save('php://output');
         exit();
+    }
+
+    public function massDelete(Request $request)
+    {
+        if ($request->data == null) {
+            return redirect()->back()->with('danger', 'Silahkan Masukkan Data');
+        }
+        $id = explode(',', $request->data);
+        foreach ($id as $id) {
+            student::destroy($id);
+        }
+        return redirect()->back()->with(['success' => 'Data berhasil dihapus']);
     }
 }

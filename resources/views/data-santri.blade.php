@@ -189,6 +189,8 @@
         </h2>
     </x-slot>
 
+    <x-alert />
+
     <div class="py-12 modal" id="ex1">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -219,6 +221,38 @@
     </div>
 
 
+    <form method="get" action=""
+        class="block p-6 m-3 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+        @csrf
+        <input name="data" type="text" class="hidden" id="data-array">
+        <button type="submit" name="submit" type="submit" formaction="/dashboard/data-santri/mass/delete"
+            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Delete</button>
+
+        <button id="dropdownDefault" data-dropdown-toggle="titipUang"
+            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            type="button">Penitipan Uang<svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg></button>
+        <!-- Dropdown menu -->
+        <div id="titipUang"
+            class="z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 block hidden"
+            data-popper-reference-hidden="true" data-popper-escaped="" data-popper-placement="bottom"
+            style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(316.25px, 70px);">
+            <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
+                @foreach ($money_dep as $item)
+                    <li>
+                        <button type="submit" formaction="/dashboard/penitipan-uang/{{ $item->slug }}/insert"
+                            class="block w-full text-left py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{ $item->nama_penyimpanan }}
+                        </button>
+                    </li>
+                @endforeach
+
+
+            </ul>
+        </div>
+
+    </form>
 
     {{-- Data --}}
 
@@ -464,7 +498,7 @@
 
                 table.column(0).visible(true);
                 $("#yajra > tbody").on('click', 'tr', function() {
-                    var id = table.row( this ).data().id;
+                    var id = table.row(this).data().id;
                     var index = $.inArray(id, selected);
 
                     if (index === -1) {
@@ -473,7 +507,7 @@
                         selected.splice(index, 1);
                     }
                     $(this).toggleClass('selected');
-                    console.log(selected);
+                    $('#data-array').val(selected);
                 });
 
             });
@@ -482,4 +516,4 @@
     </x-slot>
 
 
-</x-app-layout>
+    </x-s>

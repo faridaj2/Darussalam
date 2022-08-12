@@ -4,114 +4,127 @@
             {{ '' }}
         </h2>
     </x-slot>
+    @foreach ($student as $item)
+    @endforeach
     <div class="p-2">
-        <div
-            class="block p-6 bg-white rounded-lg border border-gray-200 shadow-md  dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-            <div id="data-filter" class="flex justify-between p-2">
 
-            </div>
-            <div class="overflow-x-auto relative">
-                <table id="yajra" class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-        
-                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                        <tr>
-                            <th scope="col" class="py-3 px-6">
-                                No
+        <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="py-3 px-6">
+                            Nama
+                        </th>
+                        <th scope="col" class="py-3 px-6">
+                            Masuk
+                        </th>
+                        <th scope="col" class="py-3 px-6">
+                            Keluar
+                        </th>
+                        <th scope="col" class="py-3 px-6">
+                            Saldo
+                        </th>
+                        <th scope="col" class="py-3 px-6">
+                            Action
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($student as $item)
+                        <tr class="bg-gray-50 border-b dark:bg-gray-800 dark:border-gray-700">
+                            <th scope="row"
+                                class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                {{ $item->student->nama }}
                             </th>
-                            <th scope="col" class="py-3 px-6">
-                                Nama
-                            </th>
-                            <th scope="col" class="py-3 px-6">
-                                NIS
-                            </th>
-                            <th scope="col" class="py-3 px-6">
-                                Ayah
-                            </th>
-                            <th scope="col" class="py-3 px-6">
-                                Gender
-                            </th>
-                            <th scope="col" class="py-3 px-6">
-                                kamar
-                            </th>
-                            <th scope="col" class="py-3 px-6">
-                                <span class="sr-only">Edit/Hapus</span>
-                                
-                            </th>
+                            <td class="py-4 px-6">
+                                White
+                            </td>
+                            <td class="py-4 px-6">
+                                Laptop PC
+                            </td>
+                            <td class="py-4 px-6">
+                                $1999
+                            </td>
+                            <td class="py-4 px-6">
+                                <a href="#"
+                                    class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                            </td>
                         </tr>
-                    </thead>
-                    <tbody class="body-table">
-        
-                    </tbody>
-                </table>
-            </div>
-            <div id="data-paginate" class="flex justify-between p-2"></div>
+                    @endforeach
+
+
+
+
+
+                </tbody>
+            </table>
         </div>
+
+
+        <!-- Modal toggle -->
+        <button
+            class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            type="button" data-modal-toggle="defaultModal">
+            Toggle modal
+        </button>
+
+        <!-- Main modal -->
+        <div id="defaultModal" tabindex="-1"
+            class="hidden overflow-y-auto overflow-x-hidden bg-white fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center flex"
+            aria-modal="true" role="dialog">
+            <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
+                <!-- Modal content -->
+                <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                    <!-- Modal header -->
+                    <div class="flex justify-between items-start p-4 rounded-t border-b dark:border-gray-600">
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                            Terms of Service
+                        </h3>
+                        <button type="button"
+                            class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                            data-modal-toggle="defaultModal">
+                            <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="sr-only">Close modal</span>
+                        </button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="p-6 space-y-6">
+                        <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                            With less than a month to go before the European Union enacts new consumer privacy laws for
+                            its citizens, companies around the world are updating their terms of service agreements to
+                            comply.
+                        </p>
+                        <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                            The European Union’s General Data Protection Regulation (G.D.P.R.) goes into effect on May
+                            25 and is meant to ensure a common set of data rights in the European Union. It requires
+                            organizations to notify users as soon as possible of high-risk data breaches that could
+                            personally affect them.
+                        </p>
+                    </div>
+                    <!-- Modal footer -->
+                    <div
+                        class="flex items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600">
+                        <button data-modal-toggle="defaultModal" type="button"
+                            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">I
+                            accept</button>
+                        <button data-modal-toggle="defaultModal" type="button"
+                            class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Decline</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
     <x-slot name="script">
-        <script src="{{ asset('js/datatable.js') }}"></script>
         <script type="text/javascript">
             $(document).ready(function() {
-                function getData(me) {
-                    let id = $(me).attr('data-id');
-                    let name = $(me).attr('data-name');
 
-                    $('#namePlace').html(name);
-                    $('#deleteBtn').attr('href', '/dashboard/data-santri/delete/' + id);
-                }
-                window.getData = getData;
-
-                $('#yajra').DataTable({
-                    processing: true,
-                    serverSide: true,
-                    ajax: "{{ route('user.index') }}",
-                    columns: [{
-                            data: 'DT_RowIndex',
-                            name: 'DT_RowIndex'
-                        },
-                        {
-                            data: 'name',
-                            name: 'name',
-                            orderable: true,
-                            searchable: true
-                        },
-                        {
-                            data: 'nis',
-                            name: 'nis'
-                        },
-                        {
-                            data: 'ayah',
-                            name: 'ayah'
-                        },
-                        {
-                            data: 'kelamin',
-                            name: 'kelamin'
-                        },
-                        {
-                            data: 'kamar',
-                            name: 'kamar'
-                        },
-                        {
-                            data: 'action',
-                            name: 'action',
-                            orderable: true,
-                            searchable: true
-                        },
-                    ],
-                    drawCallback: function(){
-                        $('#yajra_length').appendTo('#data-filter');
-                        $('#yajra_filter').appendTo('#data-filter');
-                        $('#yajra_paginate').appendTo('#data-paginate');
-                        $('#yajra_info').appendTo('#data-paginate');
-                        $('#yajra_filter > label > input').focus();
-                    }
-
-
-                });
-
-                
             });
-
-            
         </script>
     </x-slot>
 </x-app-layout>
