@@ -16,9 +16,9 @@ class CreateMoneyResTable extends Migration
         Schema::create('money_res', function (Blueprint $table) {
             $table->id();
             $table->foreignId('md_list_id');
-            $table->integer('uang_masuk');
-            $table->integer('uang_keluar');
-            $table->integer('uang_total');
+            $table->integer('uang_masuk')->nullable();
+            $table->integer('uang_keluar')->nullable();
+            $table->integer('uang_total')->nullable();
             $table->timestamps();
         });
     }

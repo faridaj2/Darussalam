@@ -28,11 +28,12 @@
         </h2>
     </x-slot>
 
-    <div class="p-2 flex flex-col md:flex-row gap-3">
+    <div class="p-2 grid gap-3 md:grid-cols-3 md:px-20 mx-auto mt-3 rounded-md">
 
         @foreach ($kategori as $k)
-            <a href="/dashboard/penitipan-uang/{{ $k->slug }}" data-name="{{ $k->nama_penyimpanan }}" slug="{{ $k->slug }}"
-                class="touch block p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+            <a href="/dashboard/penitipan-uang/{{ $k->slug }}" data-name="{{ $k->nama_penyimpanan }}"
+                slug="{{ $k->slug }}"
+                class="touch bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8  hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
                 {{ $k->nama_penyimpanan }}
             </a>
         @endforeach
@@ -59,8 +60,8 @@
                     var name = $(this).attr('data-name');
                     var slug = $(this).attr('slug');
                     if (window.confirm(
-                            'Apakah Anda ingin menghapus Kategori '+name)) {
-                        window.location.href = '/dashboard/penitipan-uang/'+slug+'/hapus';
+                            'Apakah Anda ingin menghapus Kategori ' + name)) {
+                        window.location.href = '/dashboard/penitipan-uang/' + slug + '/hapus';
                     };
                     // alert(this, e);
                     // this.prevetDefault();
