@@ -46,10 +46,21 @@ class MoneyDepositController extends Controller
     }
     public function showKategori(Request $request, $slug)
     {
+        $money = [];
         $id = money_deposit::firstWhere('slug', $slug)->id;
-        $db_detail = md_list::where('money_deposit_id', $id)->get()->toJson();
+
+        foreach (md_list::where('money_deposit_id', $id)->get() as $item) {
+            if ($item->money_re->last() == null) {
+                array_push($money, 0);
+            } else {
+                array_push($money, $item->money_re->last()->uang_total);
+            }
+        }
+
         $data = [
-            'student' => md_list::where('money_deposit_id', $id)->get()
+            'student' => md_list::where('money_deposit_id', $id)->get(),
+            'money' => $money
+            // 'money_total' =>
         ];
         return view('kategori_detail', $data);
     }
@@ -70,6 +81,13 @@ class MoneyDepositController extends Controller
             ]);
         }
         return redirect()->back()->with(['success' => 'Data berhasil dimasukkan ke ' . $into->nama_penyimpanan]);
+    }
+
+    public function storeMoney(Request $request)
+    {
+        money_re::create([
+            ''
+        ]);
     }
 
 

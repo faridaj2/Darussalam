@@ -14,4 +14,8 @@ class md_list extends Model
     {
         return $this->belongsTo(student::class);
     }
+    public function money_re()
+    {
+        return $this->hasMany(money_re::class);
+    }
 }

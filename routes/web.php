@@ -50,6 +50,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard/penitipan-uang/{slug}/hapus', [MoneyDepositController::class, 'destroy']);
     Route::get('/dashboard/penitipan-uang/{slug}', [MoneyDepositController::class, 'showKategori']);
     Route::get('/dashboard/penitipan-uang/{slug}/insert', [MoneyDepositController::class, 'insertStudent']);
+
+
+    Route::get('/dashboard/money/store', [MoneyDepositController::class, 'storeMoney']);
 });
 
 
