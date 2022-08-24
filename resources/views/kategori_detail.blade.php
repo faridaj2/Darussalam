@@ -33,17 +33,19 @@
                                         {{ $item->student->nama }}
                                     </p>
                                     <p class="text-sm text-gray-500 truncate">
-                                        {{ $item->student->alamat }}
+                                        <a href="/dashboard/deposite/detail/{{ $item->id  }}" onclick="prevent()" class="text-blue-700 underline">Detail</a>
+                                        <a href="/dashboard/deposite/{{ $item->id }}/delete" class="text-blue-700 underline">Hapus</a>
                                     </p>
                                 </div>
                                 <div class="inline-flex items-center text-base font-semibold text-gray-900">
-                                    <span>
-
+                                    <span class="bg-red-100 text-red-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">Rp.
+                                        <span class="aneh">
                                         @if (count($money = $item->money_re) > 0)
                                             {{ $money->last()->uang_total }}
                                         @else
                                             0
                                         @endif
+                                        </span>
                                     </span>
 
                                 </div>
@@ -110,9 +112,10 @@
         </div>
 
         <!-- Main modal -->
-        <div id="getMoney" tabindex="-1"
+        <form id="getMoney" method="POST" action="/dashboard/money" tabindex="-1"
             class="hidden overflow-y-auto overflow-x-hidden bg-white fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center flex"
             aria-modal="true" role="dialog">
+            @csrf
             <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
                 <!-- Modal content -->
                 <div class="max-w-md relative bg-white rounded-lg shadow dark:bg-gray-700">
@@ -139,24 +142,29 @@
 
                         </div>
                         <div class="flex ">
-                            <input type="number" placeholder="Jumlah diambil"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <input type="number" name="_get" placeholder="Jumlah disimpan"
+                                class="st_get input bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <input type="hidden" name="_put" value="0"
+                                class="st_put hidden" value="0">
+                            <input type="hidden" name="_total"
+                                class="st_total hidden">
+                            <input class="st_id" type="hidden" name="id">
                         </div>
                     </div>
                     <!-- Modal footer -->
                     <div
                         class="flex items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600">
-                        <button data-modal-toggle="getMoney" type="button"
+                        <button data-modal-toggle="getMoney" type="submit"
                             class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Ambil</button>
                         <button data-modal-toggle="getMoney" type="button"
                             class=" text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Batal</button>
                     </div>
                 </div>
             </div>
-        </div>
+        </form>
 
         <!-- Main modal -->
-        <form method="get" action="/dashboard/money/store" id="storeMoney" tabindex="-1"
+        <form method="POST" action="/dashboard/money" id="storeMoney" tabindex="-1"
             class="hidden overflow-y-auto overflow-x-hidden bg-white fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center flex"
             aria-modal="true" role="dialog">
             @csrf
@@ -182,17 +190,20 @@
                     </div>
                     <!-- Modal body -->
                     <div class="p-6 space-y-6">
-                        <div class="money-place text-center font-bold">
+
+                        <div class="text-center font-bold">
+                            Rp.
+                            <span class="money-place"></span>
 
                         </div>
                         <div class="flex ">
-                            <input type="number" name="in" placeholder="Jumlah disimpan"
-                                class="input bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <input type="number" name="out"
-                                class="hidden bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-
-                            <input type="number" name="total"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <input type="number" name="_put" placeholder="Jumlah disimpan"
+                                class="st_put input bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <input type="hidden" name="_get" value="0"
+                                class="st_get hidden">
+                            <input type="hidden" name="_total"
+                                class="st_total hidden">
+                            <input class="st_id" type="hidden" name="id">
 
                         </div>
                     </div>
@@ -214,35 +225,74 @@
     <x-slot name="script">
         <script src="http://rawgit.com/ngryman/jquery.finger/v0.1.2/dist/jquery.finger.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/jquery.session@1.0.0/jquery.session.min.js"></script>
+        <script src="{{ asset('simple.money.format.js') }}"></script>
+        <script src="{{ asset('jquery.formula.js') }}"></script>
         <script type="text/javascript">
             $(document).ready(function() {
+
                 let data = {!! $student->toJson() !!};
                 $('.press').on('press', function(e) {
-                    let ask = confirm('Lihat Detail.?');
+                    var index = $(".press").index(this);
+                    let ask = confirm('Hapus');
+                    console.log(data[index]['id']);
                     if (ask) {
-                        window.open("/dashboard/penitipan/uang/", "_self")
+                        window.open("/md_list/"+data[index]['id'], "_self")
                     }
 
                 });
+                let uang;
+                // `this` is the DOM element that was clicked
                 $(".press").click(function() {
-                    // `this` is the DOM element that was clicked
                     var index = $(".press").index(this);
                     let array = data[index]['money_re'];
-                    let uang;
+
                     if (array.length > 0) {
                         uang = array[array.length - 1]['uang_total'];
                     } else {
                         uang = 0;
                     }
                     $('.money-place').html(uang);
-                    $('.input').on('change', function() {
-                        let input = $(this).val();
-                        input = Number(input);
-                        alert(uang + input);
-                    });
+                    $('.money-place').simpleMoneyFormat();
+
+                    $('.st_id').val(data[index]['id']);
+
+
 
 
                 });
+
+                $('.st_put').on('keyup', function() {
+                        let input = $(this).val();
+                        input = Number(input);
+
+
+                        $('.money-place').html(uang + input);
+                        $('.money-place').simpleMoneyFormat();
+                        $('.st_total').val(uang + input);
+                });
+                $('.st_get').on('keyup', function() {
+                        let input = $(this).val();
+                        input = Number(input);
+
+
+                        $('.money-place').html(uang - input);
+                        $('.money-place').simpleMoneyFormat();
+                        $('.st_total').val(uang - input);
+                });
+
+                $('.aneh').each(function(i, obj){
+                    console.log(obj);
+                    $(obj).html(parseInt($(obj).html()));
+                });
+                $('.aneh').simpleMoneyFormat();
+
+                function prevent(){
+
+                }
+
+
+
+
 
 
 

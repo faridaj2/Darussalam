@@ -9,16 +9,46 @@ module.exports = {
     ],
 
     theme: {
+        fontFamily: {
+            'review': 'Review'
+        },
         extend: {
             fontFamily: {
-                sans: ['Nunito', ...defaultTheme.fontFamily.sans],
+                sans: ['Ubuntu', ...defaultTheme.fontFamily.sans],
+
             },
         },
     },
+    daisyui: {
+        themes: [
+          {
+            mytheme: {
+
+   "primary": "#8686ef",
+
+   "secondary": "#21ce72",
+
+   "accent": "#f7dcaa",
+
+   "neutral": "#282A39",
+
+   "base-100": "#E8E8E8",
+
+   "info": "#507BF2",
+
+   "success": "#3FE4BD",
+
+   "warning": "#B98F13",
+
+   "error": "#F2766E",
+            },
+          },
+        ],
+      },
 
     plugins: [
         require('@tailwindcss/forms'),
-        require('flowbite/plugin'),
-        require('@tailwindcss/typography')
+        require('@tailwindcss/typography'),
+        require("daisyui")
     ],
 };

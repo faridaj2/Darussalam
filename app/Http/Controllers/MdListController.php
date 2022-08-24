@@ -5,9 +5,15 @@ namespace App\Http\Controllers;
 use App\Models\md_list;
 use App\Http\Requests\Storemd_listRequest;
 use App\Http\Requests\Updatemd_listRequest;
+use Illuminate\Http\Request;
+
 
 class MdListController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *

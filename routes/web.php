@@ -2,7 +2,10 @@
 
 use App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Data;
+use App\Http\Controllers\MdListController;
 use App\Http\Controllers\MoneyDepositController;
+use App\Http\Controllers\MoneyReController;
+use App\Models\money_re;
 use App\Models\student;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
@@ -30,46 +33,51 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 
-Route::middleware(['auth'])->group(function () {
+Route::prefix('dashboard/')->middleware(['auth'])->group(function () {
     //Data Santri
-    Route::get('/dashboard/data-santri', [Dashboard::class, 'view'])->name('dashboard/data-santri');
-    Route::post('/dashboard/data-santri/store', [Dashboard::class, 'store']);
-    Route::get('/dashboard/data-santri/cari', [Dashboard::class, 'search']);
-    Route::get('/dashboard/data-santri/detail/{any}', [Dashboard::class, 'detail']);
-    Route::get('/dashboard/data-santri/input-data/', [Dashboard::class, 'inputData']);
-    Route::post('/dashboard/data-santri/input-data/', [Dashboard::class, 'inputDataStore']);
-    Route::get('/dashboard/data-santri/delete/{id}/', [Dashboard::class, 'deleteData']);
-    Route::get('/dashboard/data-santri/edit/{id}/', [Dashboard::class, 'editData']);
-    Route::post('/dashboard/data-santri/editData/', [Dashboard::class, 'editDataStore']);
-    Route::get('/dashboard/mass-data', [Dashboard::class, 'getData']);
-    Route::get('/dashboard/data-santri/mass/delete', [Dashboard::class, 'massDelete']);
+    Route::get('data-santri', [Dashboard::class, 'view'])->name('dashboard/data-santri');
+    Route::post('data-santri/store', [Dashboard::class, 'store']);
+    Route::get('data-santri/cari', [Dashboard::class, 'search']);
+    Route::get('data-santri/detail/{any}', [Dashboard::class, 'detail']);
+    Route::get('data-santri/input-data/', [Dashboard::class, 'inputData']);
+    Route::post('data-santri/input-data/', [Dashboard::class, 'inputDataStore']);
+    Route::get('data-santri/delete/{id}/', [Dashboard::class, 'deleteData']);
+    Route::get('data-santri/edit/{id}/', [Dashboard::class, 'editData']);
+    Route::post('data-santri/editData/', [Dashboard::class, 'editDataStore']);
+    Route::get('mass-data', [Dashboard::class, 'getData']);
+    Route::get('data-santri/mass/delete', [Dashboard::class, 'massDelete']);
 
-    //Penitipan Uang    
-    Route::get('/dashboard/penitipan-uang', [MoneyDepositController::class, 'index'])->name('dashboard/penitipan-uang');
-    Route::post('/dashboard/penitipan-uang/tambah-kategori', [MoneyDepositController::class, 'createCategory']);
-    Route::get('/dashboard/penitipan-uang/{slug}/hapus', [MoneyDepositController::class, 'destroy']);
-    Route::get('/dashboard/penitipan-uang/{slug}', [MoneyDepositController::class, 'showKategori']);
-    Route::get('/dashboard/penitipan-uang/{slug}/insert', [MoneyDepositController::class, 'insertStudent']);
+    //Penitipan Uang
+    Route::get('penitipan-uang', [MoneyDepositController::class, 'index'])->name('dashboard/penitipan-uang');
+    Route::post('penitipan-uang/tambah-kategori', [MoneyDepositController::class, 'createCategory']);
+    Route::get('penitipan-uang/{slug}/hapus', [MoneyDepositController::class, 'destroy']);
+    Route::get('penitipan-uang/{slug}', [MoneyDepositController::class, 'showKategori']);
+    Route::get('penitipan-uang/{slug}/insert', [MoneyDepositController::class, 'insertStudent']);
+
+    Route::get('/deposite/detail/{id}',[MoneyDepositController::class, 'detail']);
+    Route::get('/deposite/{id}/delete',[MoneyDepositController::class, 'delete']);
 
 
-    Route::get('/dashboard/money/store', [MoneyDepositController::class, 'storeMoney']);
+
 });
 
+Route::resource('/dashboard/money', MoneyReController::class);
 
-//Download Data Santri Dalam Eccell
+
+//Download Data Santri Dalam Excell
 Route::get('getUser', function (Request $request) {
     if ($request->ajax()) {
         $data = student::get();
         return DataTables::of($data)
             ->addIndexColumn()
             ->addColumn('name', function ($row) {
-                $btnname = '<a href="/dashboard/data-santri/detail/' . $row->id . '" class="edit btn btn-success btn-sm">' . $row->nama . '</a>';
+                $btnname = '<a href="/dashboard/data-santri/detail/' . $row->id . '" class="p-0 btn btn-link">' . $row->nama . '</a>';
 
                 return $btnname;
             })
             ->addColumn('action', function ($row) {
-                $actionBtn = '<a href="/dashboard/data-santri/edit/' . $row->id . '" class="edit btn btn-success btn-sm">Edit</a> <a href="#m1" onclick="getData(this)" data-id="' . $row->id . '"
-                    data-name="' . $row->nama . '" rel="modal:open" class="">Delete</a>';
+                $actionBtn = '<a href="/dashboard/data-santri/edit/' . $row->id . '" class="edit btn btn-primary btn-sm"><i class="fad fa-edit"></i></a> <a href="#m1" onclick="getData(this)" data-id="' . $row->id . '"
+                    data-name="' . $row->nama . '" rel="modal:open" class="btn btn-error mt-2"><i class="fad fa-trash"></i></a>';
 
                 return $actionBtn;
             })

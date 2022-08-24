@@ -94,7 +94,7 @@
                         </li>
                         <li>
                             <div class="flex items-center">
-                                <input onchange="togle(this)" id="checkbox-item-8" type="checkbox" value="8"
+                                <input onchange="togle(this)" id="checkbox-item-8" type="checkbox" value="8" checked
                                     class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
                                 <label for="checkbox-item-8"
                                     class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Alamat</label>
@@ -176,7 +176,7 @@
                         </li>
                         <li>
                             <div class="flex items-center">
-                                <input onchange="togle(this)" id="checkbox-item-17" type="checkbox" value="17"
+                                <input onchange="togle(this)" id="checkbox-item-17" type="checkbox" value="17" checked
                                     class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
                                 <label for="checkbox-item-17"
                                     class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">NIS</label>
@@ -195,7 +195,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="bg-white border-b border-gray-200 prose">
-                    <h2>Tambah Via Excell</h2>
+                    <h2 class="font-review">Tambah Via Excell</h2>
 
 
                     <form method="POST" action="/dashboard/data-santri/store" enctype="multipart/form-data">
@@ -221,15 +221,16 @@
     </div>
 
 
+
     <form method="get" action=""
-        class="block p-6 m-3 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+        class="flex gap-2 flex-col md:flex-row block p-6 m-3 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
         @csrf
         <input name="data" type="text" class="hidden" id="data-array">
         <button type="submit" name="submit" type="submit" formaction="/dashboard/data-santri/mass/delete"
-            class="text-white bg-red-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Delete</button>
+            class="btn btn-error text-white">Delete</button>
 
         <button id="dropdownDefault" data-dropdown-toggle="titipUang"
-            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            class="btn btn-primary text-white"
             type="button">Penitipan Uang<svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none"
                 stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -261,13 +262,13 @@
     <div class="p-2" id="">
         <div
             class="block p-6 bg-white rounded-lg border border-gray-200 shadow-md  dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-            <div id="data-filter" class="flex md:flex-row flex-col gap-2 md:justify-between p-2">
+            <div id="data-filter" class="flex md:justify-between flex-col md:flex-row text-center justify-center gap-2 p-2">
 
             </div>
-            <div class="overflow-x-auto relative">
-                <table id="yajra" class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+            <div class="">
+                <table id="yajra" class="gap-3">
 
-                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <thead class="text-xs text-gray-700 uppercase ">
                         <tr>
                             <th scope="col" class="py-3 px-6">
                                 No
@@ -332,7 +333,7 @@
                             </th>
                         </tr>
                     </thead>
-                    <tbody class="body-table">
+                    <tbody class="">
 
                     </tbody>
                 </table>
@@ -463,11 +464,9 @@
                         },
                     ],
                     drawCallback: function() {
-                        $('#yajra_length').appendTo('#data-filter');
-                        $('#yajra_filter').appendTo('#data-filter');
+
                         $('#yajra_paginate').appendTo('#data-paginate');
                         $('#yajra_info').appendTo('#data-paginate');
-                        $('#yajra_filter > label > input').focus();
 
                     },
                     rowCallback: function(row, data) {
@@ -490,7 +489,7 @@
                 }
 
                 window.togle = togle;
-                var data = [2, 3, 4, 5, 6, 7, 10, 11, 12, 13, 14, 15];
+                var data = [2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15, 17];
 
                 $.each(data, function(index, value) {
                     table.column(value).visible(false);
@@ -509,6 +508,8 @@
                     $(this).toggleClass('selected');
                     $('#data-array').val(selected);
                 });
+                $('#yajra_length').appendTo('#data-filter');
+                $('#yajra_filter').appendTo('#data-filter');
 
             });
         </script>

@@ -2,43 +2,44 @@
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             <div>
-                <span>Masukan Kategori</span>
-                <br>
-                <form method="post" action="/dashboard/penitipan-uang/tambah-kategori">
-                    @csrf
-                    <label for="price" class="block text-sm font-medium text-gray-700"></label>
-                    <div class="mt-1 relative rounded-md shadow-sm">
-                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
 
-                        </div>
-                        <input type="text" name="kategori" id="price"
-                            class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pr-12 sm:text-sm border-gray-300 rounded-md">
-                        <div class="absolute inset-y-0 right-0 flex items-center">
-                            <label for="currency" class="sr-only">Currency</label>
-                            <input type="submit" value="Tambah" id="currency"
-                                class="focus:ring-indigo-500 focus:border-indigo-500 h-full py-0 pl-2 pr-7 border-transparent bg-slate-300 text-gray-500 sm:text-sm rounded-md cursor-pointer">
-
-                            </input>
-                        </div>
-                    </div>
-                </form>
             </div>
 
 
         </h2>
     </x-slot>
 
-    <div class="p-2 grid gap-3 md:grid-cols-3 md:px-20 mx-auto mt-3 rounded-md">
+    <div class="md:grid grid-cols-4 gap-2 ">
+        <div class="rounded-md card m-2 mt-6 p-5 bg-white rounded-lg border shadow-lg">
+            <form method="post" action="/dashboard/penitipan-uang/tambah-kategori">
+                @csrf
+                <h1 class="font-bold mx-2">Tambah Kategori</h1>
+                <input type="text" name="kategori" class="mt-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full" placeholder="Nama Kategori">
+                <input type="submit" class="py-2 mt-2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full" name="" id="">
+            </form>
+        </div>
+        <div class="p-2 grid gap-3 col-span-3 w-full md:grid-cols-3 mx-auto mt-2 rounded-md">
 
-        @foreach ($kategori as $k)
-            <a href="/dashboard/penitipan-uang/{{ $k->slug }}" data-name="{{ $k->nama_penyimpanan }}"
-                slug="{{ $k->slug }}"
-                class="touch bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8  hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-                {{ $k->nama_penyimpanan }}
-            </a>
-        @endforeach
+            @foreach ($kategori as $k)
+                <a href="/dashboard/penitipan-uang/{{ $k->slug }}" data-name="{{ $k->nama_penyimpanan }}" slug="{{ $k->slug }}" class="touch md:h-20 bg-white rounded-lg border shadow-lg p-3 mt-2 w-full flex items-center">
+                    <div class="flex items-center">
+
+                        <div class="px-3 py-2 rounded bg-pink-600 text-white mr-3">
+                            <i class="fad fa-user"></i>
+                        </div>
+
+                        <div class="flex flex-col">
+                            <h1 class="font-semibold">{{ $k->nama_penyimpanan }}
+                        </div>
+
+                    </div>
+                </a>
+
+            @endforeach
 
 
+
+        </div>
 
     </div>
 

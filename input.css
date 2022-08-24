@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url();
+
 
 .body-table tr{
     @apply h-10;

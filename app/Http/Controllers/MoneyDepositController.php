@@ -90,69 +90,16 @@ class MoneyDepositController extends Controller
         ]);
     }
 
-
-
-
-
-
-    public function create()
-    {
-        //
+    public function detail(Request $request, $id){
+        $data = [
+            'student' => md_list::firstWhere('id', $id)
+        ];
+        return view('detail_deposite', $data);
+    }
+    public function delete(Request $request, $id){
+        md_list::destroy($id);
+        return redirect()->back();
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\Storemoney_depositRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Storemoney_depositRequest $request)
-    {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\money_deposit  $money_deposit
-     * @return \Illuminate\Http\Response
-     */
-    public function show(money_deposit $money_deposit)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\money_deposit  $money_deposit
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(money_deposit $money_deposit)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\Updatemoney_depositRequest  $request
-     * @param  \App\Models\money_deposit  $money_deposit
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Updatemoney_depositRequest $request, money_deposit $money_deposit)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\money_deposit  $money_deposit
-     * @return \Illuminate\Http\Response
-     */
-    // public function destroy(money_deposit $money_deposit)
-    // {
-    //     //
-    // }
 }
