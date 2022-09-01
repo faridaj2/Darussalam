@@ -5,6 +5,7 @@ use App\Http\Controllers\Data;
 use App\Http\Controllers\MdListController;
 use App\Http\Controllers\MoneyDepositController;
 use App\Http\Controllers\MoneyReController;
+use App\Http\Controllers\Spp;
 use App\Models\money_re;
 use App\Models\student;
 use App\Models\User;
@@ -57,6 +58,11 @@ Route::prefix('dashboard/')->middleware(['auth'])->group(function () {
     Route::get('/deposite/detail/{id}',[MoneyDepositController::class, 'detail']);
     Route::get('/deposite/{id}/delete',[MoneyDepositController::class, 'delete']);
 
+    //SPP & Kos
+
+    Route::get('spp-kos', [Spp::class, 'index'])->name('dashboard/spp-kos');
+
+
 
 
 });
@@ -87,3 +93,4 @@ Route::get('getUser', function (Request $request) {
 })->name('user.index');
 
 require __DIR__ . '/auth.php';
+require __DIR__ . '/spp.php';

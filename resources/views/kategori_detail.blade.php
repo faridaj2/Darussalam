@@ -4,13 +4,11 @@
             {{ '' }}
         </h2>
     </x-slot>
-    @foreach ($student as $item)
-    @endforeach
     <div class="p-2">
 
 
 
-        <div class="bg-white shadow rounded-lg mb-4 p-4 sm:p-6 h-full">
+        <div class="bg-white shadow-lg rounded-lg mb-4 p-4 sm:p-6 h-full">
             <div class="flex items-center justify-between mb-4">
                 <h3 class="text-xl font-bold leading-none text-gray-900">Daftar Penitip</h3>
                 {{-- <a href="#"
@@ -23,10 +21,8 @@
                     @foreach ($student as $item)
                         <li data-modal-toggle="modalIni" class="press py-3 sm:py-4 cursor-pointer">
                             <div class="flex items-center space-x-4">
-                                <div class="flex-shrink-0">
-                                    <img class="h-8 w-8 rounded-full"
-                                        src="https://cdn-icons-png.flaticon.com/512/1946/1946429.png"
-                                        alt="{{ $item->student->nama }} image">
+                                <div class="shrink-1 text-lg">
+                                    <i class="fad fa-claw-marks"></i>
                                 </div>
                                 <div class="flex-1 min-w-0">
                                     <p class="text-sm font-medium text-gray-900 truncate">
@@ -281,7 +277,7 @@
                 });
 
                 $('.aneh').each(function(i, obj){
-                    console.log(obj);
+
                     $(obj).html(parseInt($(obj).html()));
                 });
                 $('.aneh').simpleMoneyFormat();
