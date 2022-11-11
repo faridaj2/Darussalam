@@ -10,7 +10,9 @@ module.exports = {
 
     theme: {
         fontFamily: {
-            'review': 'Review'
+            'review': 'Review',
+            'Montserrat': 'Montserrat',
+            'Lato': 'Lato'
         },
         extend: {
             fontFamily: {

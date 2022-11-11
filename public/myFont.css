@@ -1,4 +1,4 @@
 @font-face {
     font-family: Review;
-    src: url(Review.ttf);
+    src: url("Review.ttf") format("ttf");
 }

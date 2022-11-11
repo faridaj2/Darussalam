@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.color-decor{
+    @apply flex gap-1;
+}
+.color-decor div{
+    height: 10px;
+    width: 10px;
+    @apply rounded-lg;
+}
+.color-decor div:nth-child(1){
+    background-color: #D9D9D9;
+}
+.color-decor div:nth-child(2){
+    background-color: #2F42A0;
+}
+.color-decor div:nth-child(3){
+    background-color: #68D810;
+}
+.bg-gradient{
+    background: linear-gradient(95.3deg, #60A547 38.19%, #364B72 125.77%);
+
+}
