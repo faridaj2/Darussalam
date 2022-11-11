@@ -26,7 +26,7 @@ use Yajra\Datatables\Datatables;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index.index');
 });
 
 Route::get('/dashboard', function () {
