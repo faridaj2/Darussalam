@@ -7,6 +7,10 @@
     <title>PP. Darussalam Blokagung 2 | </title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <link rel="stylesheet" href="{{ asset('dist/assets/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('dist/assets/owl.theme.default.min.css') }}">
+    
     
     {{-- Font --}}
     <link href="{{ asset('myFont.css') }}" rel="stylesheet">
@@ -16,13 +20,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
 
 
-<script>
-    <script src="https://kit.fontawesome.com/c47b455aa9.js" crossorigin="anonymous"></script>
-</script>
 
+    <script src="https://kit.fontawesome.com/c47b455aa9.js" crossorigin="anonymous"></script>
+
+<style>
+   
+    </style>
 </head>
 <body>
     @include('index.navigation')
-    
+    {{ $content }}
+    {{ $script }}
 </body>
 </html>

@@ -23,3 +23,6 @@
     background: linear-gradient(95.3deg, #60A547 38.19%, #364B72 125.77%);
 
 }
+.owl-nav{
+    @apply text-6xl flex justify-between
+}
