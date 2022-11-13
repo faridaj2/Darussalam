@@ -2,6 +2,7 @@
   
 
    <x-slot name="content">
+    {{-- Hero Slide --}}
     <div class="owl-carousel">
       <div><img class="w-full" src="https://picsum.photos/600/300?random=1"></div>
       <div><img class="w-full" src="https://picsum.photos/600/300?random=2"></div>
@@ -11,6 +12,9 @@
       <div><img class="w-full" src="https://picsum.photos/600/300?random=6"></div>
       <div><img class="w-full" src="https://picsum.photos/600/300?random=7"></div>
     </div>
+    {{-- End Hero SLide --}}
+
+    {{-- Informasi Pendaftaran --}}
     <div class="bg-gradient p-10 flex justify-center">
       <div class="text-left">
         <h1 class="text-white font-Lato text-2xl font-bold mb-4">Informasi & Pendaftaran Peserta Didik Baru</h1>
@@ -26,6 +30,16 @@
         
       </div>
     </div>
+    {{-- End Informasi Pendaftaran --}}
+
+    {{-- Pendidikan --}}
+    <div class="bg-[url('http://127.0.0.1:8000/assets/pattern.png')] h-[1000px]">
+sasddad
+    </div>
+    {{-- End Pendidikan --}}
+
+
+
    </x-slot>
 
    <x-slot name="script">

@@ -27,7 +27,7 @@
    
     </style>
 </head>
-<body>
+<body class="">
     @include('index.navigation')
     {{ $content }}
     {{ $script }}

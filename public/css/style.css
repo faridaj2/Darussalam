@@ -3409,6 +3409,18 @@ body[dir="rtl"] .checkbox:checked,
   height: 16rem;
 }
 
+.h-\[100px\] {
+  height: 100px;
+}
+
+.h-\[1000px\] {
+  height: 1000px;
+}
+
+.h-\[\'1000px\'\] {
+  height: '1000px';
+}
+
 .min-h-screen {
   min-height: 100vh;
 }
@@ -3973,6 +3985,28 @@ body[dir="rtl"] .checkbox:checked,
 
 .bg-white\/20 {
   background-color: rgb(255 255 255 / 0.2);
+}
+
+.bg-slate-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(226 232 240 / var(--tw-bg-opacity));
+}
+
+.bg-slate-800 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(30 41 59 / var(--tw-bg-opacity));
+}
+
+.bg-\[url\(\'https\:\/\/images\.unsplash\.com\/photo-1668285410063-4e5f2686b55d\?ixlib\=rb-4\.0\.3\&ixid\=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyfHx8ZW58MHx8fHw\%3D\&auto\=format\&fit\=crop\&w\=500\&q\=60\'\)\] {
+  background-image: url('https://images.unsplash.com/photo-1668285410063-4e5f2686b55d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60');
+}
+
+.bg-\[url\(\'\'\)\] {
+  background-image: url('');
+}
+
+.bg-\[url\(\'http\:\/\/127\.0\.0\.1\:8000\/assets\/pattern\.png\'\)\] {
+  background-image: url('http://127.0.0.1:8000/assets/pattern.png');
 }
 
 .fill-current {
