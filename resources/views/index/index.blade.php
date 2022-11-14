@@ -33,8 +33,61 @@
     {{-- End Informasi Pendaftaran --}}
 
     {{-- Pendidikan --}}
-    <div class="bg-[url('http://127.0.0.1:8000/assets/pattern.png')] h-[1000px]">
-sasddad
+    <div class="pattern p-8">
+      <h1 class="text-center bg-transparent font-Lato font-bold text-2xl">
+        <span class="text-[#60A547]">Program</span>
+        <span class="text-[#648459]">Pendidikan</span>
+      </h1>
+      
+      <div class="border-b-2 my-6g mx-auto md:w-1/2 border-[#60A547] border-dashed"></div>
+
+      <div class="flex justify-center w-full p-5">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-7 md:w-2/3 md:p-2">
+
+          <div class="col-span-4 bg-white shadow-lg rounded-[20px] p-2 text-[#60A547] p-10 hover:scale-105 transition">
+            <div class="flex flex-col justify-center">
+              <div class="font-Lato font-bold text-2xl basis-1/12 text-center">
+                SMK DARUSSALAM BLOKAGUNG 2
+              </div>
+              <div class="border-b-2 w-3/4 my-4 border-[#60A547] mx-auto">
+                
+              </div>
+            </div>
+            <div class="text-center font-Montserrat p-2">
+              Menjadi Sekolah Menengah Kejuruan yang berkarakter, berbudaya, berwawasan lingkungan, menghasilkan insan yang bertaqwa, profesional, mampu berwirausaha dan berdaya saing global
+            </div>
+          </div>
+
+          <div class="col-span-4 bg-gradient shadow-lg rounded-[20px] p-2 text-white p-10 hover:scale-105 transition">
+            <div class="flex flex-col justify-center">
+              <div class="font-Lato font-bold text-2xl basis-1/12 text-center">
+                SMP DARUSSALAM BLOKAGUNG 2
+              </div>
+              <div class="border-b-2 w-3/4 my-4 border-white mx-auto">
+                
+              </div>
+            </div>
+            <div class="text-center font-Montserrat p-2">
+              Menjadi Sekolah Menengah Kejuruan yang berkarakter, berbudaya, berwawasan lingkungan, menghasilkan insan yang bertaqwa, profesional, mampu berwirausaha dan berdaya saing global
+            </div>
+          </div>
+
+          <div class="col-span-4 bg-white shadow-lg rounded-[20px] p-2 text-[#60A547] p-10 hover:scale-105 transition">
+            <div class="flex flex-col justify-center">
+              <div class="font-Lato font-bold text-2xl basis-1/12 text-center">
+                Madrasah Diniyah Darul Adzkiya
+              </div>
+              <div class="border-b-2 w-3/4 my-4 border-[#60A547] mx-auto">
+                
+              </div>
+            </div>
+            <div class="text-center font-Montserrat p-2">
+              Menjadi Sekolah Menengah Kejuruan yang berkarakter, berbudaya, berwawasan lingkungan, menghasilkan insan yang bertaqwa, profesional, mampu berwirausaha dan berdaya saing global
+            </div>
+          </div>
+          
+        </div>
+      </div>
     </div>
     {{-- End Pendidikan --}}
 
