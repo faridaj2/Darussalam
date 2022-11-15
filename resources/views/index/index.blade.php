@@ -144,7 +144,7 @@
             <div class="border-b-2 my-6 mx-auto md:w-1/2 border-[#60A547] border-dashed"></div>
 
             <div class="md:w-2/3  mx-auto">
-                <div class="grid gird-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 gallery">
+                <div class="grid gird-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 gallery">
                     <img class="rounded-lg" src="https://picsum.photos/300/300.jpg?random=1" alt="">
                     <img class="rounded-lg" src="https://picsum.photos/300/300.jpg?random=2" alt="">
                     <img class="rounded-lg" src="https://picsum.photos/300/300.jpg?random=3" alt="">
