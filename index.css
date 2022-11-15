@@ -43,3 +43,6 @@
     opacity: 0.1;
     background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #e5e5f7 16px ), repeating-linear-gradient( #444cf755, #444cf7 );
 }
+.gallery img{
+    height: 320px;
+}
