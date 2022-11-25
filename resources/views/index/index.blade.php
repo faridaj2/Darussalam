@@ -4,13 +4,9 @@
     <x-slot name="content">
         {{-- Hero Slide --}}
         <div class="owl-carousel">
-            <div><img class="w-full" src="https://picsum.photos/600/300?random=1"></div>
-            <div><img class="w-full" src="https://picsum.photos/600/300?random=2"></div>
-            <div><img class="w-full" src="https://picsum.photos/600/300?random=3"></div>
-            <div><img class="w-full" src="https://picsum.photos/600/300?random=4"></div>
-            <div><img class="w-full" src="https://picsum.photos/600/300?random=5"></div>
-            <div><img class="w-full" src="https://picsum.photos/600/300?random=6"></div>
-            <div><img class="w-full" src="https://picsum.photos/600/300?random=7"></div>
+            <div><img class="w-full" src="{{ asset('assets/slider/1.png') }}"></div>
+            <div><img class="w-full" src="{{ asset('assets/slider/2.png') }}"></div>
+            <div><img class="w-full" src="{{ asset('assets/slider/3.png') }}"></div>
         </div>
         {{-- End Hero SLide --}}
 
@@ -145,9 +141,15 @@
 
             <div class="md:w-2/3  mx-auto">
                 <div class="grid gird-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 gallery">
-                    <img class="rounded-lg" src="https://picsum.photos/300/300.jpg?random=1" alt="">
-                    <img class="rounded-lg" src="https://picsum.photos/300/300.jpg?random=2" alt="">
-                    <img class="rounded-lg" src="https://picsum.photos/300/300.jpg?random=3" alt="">
+                    <img class="rounded-lg object-cover" src="{{ asset('assets/gallery/1.jpg') }}" alt="">
+                    <img class="rounded-lg object-cover" src="{{ asset('assets/gallery/2.jpg') }}" alt="">
+                    <img class="rounded-lg object-cover" src="{{ asset('assets/gallery/3.jpg') }}" alt="">
+                    <img class="rounded-lg object-cover" src="{{ asset('assets/gallery/4.jpg') }}" alt="">
+                    <img class="rounded-lg object-cover" src="{{ asset('assets/gallery/5.jpg') }}" alt="">
+                    <img class="rounded-lg object-cover" src="{{ asset('assets/gallery/6.jpg') }}" alt="">
+                    <img class="rounded-lg object-cover" src="{{ asset('assets/gallery/7.jpg') }}" alt="">
+                    <img class="rounded-lg object-cover" src="{{ asset('assets/gallery/8.jpg') }}" alt="">
+                    <img class="rounded-lg object-cover" src="{{ asset('assets/gallery/9.jpg') }}" alt="">
                 </div>
             </div>
         </div>

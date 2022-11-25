@@ -3848,6 +3848,11 @@ body[dir="rtl"] .checkbox:checked,
   fill: currentColor;
 }
 
+.object-cover {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 .p-4 {
   padding: 1rem;
 }

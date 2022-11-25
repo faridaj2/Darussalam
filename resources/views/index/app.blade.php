@@ -10,6 +10,7 @@
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <link rel="stylesheet" href="{{ asset('dist/assets/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('dist/assets/owl.theme.default.min.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('icon.ico') }}">
     
     
     {{-- Font --}}
