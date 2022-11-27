@@ -41,10 +41,10 @@ Route::prefix('dashboard/')->middleware(['auth'])->group(function () {
     Route::get('data-santri/cari', [Dashboard::class, 'search']);
     Route::get('data-santri/detail/{any}', [Dashboard::class, 'detail']);
     Route::get('data-santri/input-data/', [Dashboard::class, 'inputData']);
-    Route::post('data-santri/input-data/', [Dashboard::class, 'inputDataStore']);
+    Route::post('data-santri/input-data/', [Dashboard::class, 'inputDataStore'])->name('input-data-siswa');
     Route::get('data-santri/delete/{id}/', [Dashboard::class, 'deleteData']);
     Route::get('data-santri/edit/{id}/', [Dashboard::class, 'editData']);
-    Route::post('data-santri/editData/', [Dashboard::class, 'editDataStore']);
+    Route::put('data-santri/editData/', [Dashboard::class, 'editDataStore'])->name('edit-data-siswa');
     Route::get('mass-data', [Dashboard::class, 'getData']);
     Route::get('data-santri/mass/delete', [Dashboard::class, 'massDelete']);
 

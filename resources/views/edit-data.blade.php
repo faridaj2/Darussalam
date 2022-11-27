@@ -6,8 +6,9 @@
     </x-slot>
     <div class="p-10">
 
-        <form method="POST" action="/dashboard/data-santri/editData/">
+        <form method="POST" action="{{ route('edit-data-siswa') }}">
             @csrf
+            @method('PUT')
             <input type="hidden" value="{{ $siswa->id }}" name="id">
             <div class="relative z-0 mb-6 w-full group">
                 <input type="text" name="nama" id="floating_email"
