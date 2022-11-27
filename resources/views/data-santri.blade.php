@@ -5,7 +5,7 @@
             <div class="inline-flex rounded-md shadow-sm" role="group">
                 <button type="button"
                     class="py-2 px-4 text-sm font-medium text-gray-900 bg-white rounded-l-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
-                    <a href="#ex1" rel="modal:open">Tambah via Excell</a>
+                    <label for="my-modal-4">Tambah via Excell</label>
                 </button>
                 <button type="button"
                     class="py-2 px-4 text-sm font-medium text-gray-900 bg-white border border-t border-b border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
@@ -94,7 +94,8 @@
                         </li>
                         <li>
                             <div class="flex items-center">
-                                <input onchange="togle(this)" id="checkbox-item-8" type="checkbox" value="8" checked
+                                <input onchange="togle(this)" id="checkbox-item-8" type="checkbox" value="8"
+                                    checked
                                     class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
                                 <label for="checkbox-item-8"
                                     class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Alamat</label>
@@ -176,7 +177,8 @@
                         </li>
                         <li>
                             <div class="flex items-center">
-                                <input onchange="togle(this)" id="checkbox-item-17" type="checkbox" value="17" checked
+                                <input onchange="togle(this)" id="checkbox-item-17" type="checkbox" value="17"
+                                    checked
                                     class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
                                 <label for="checkbox-item-17"
                                     class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">NIS</label>
@@ -190,35 +192,43 @@
     </x-slot>
 
     <x-alert />
-
-    <div class="py-12 modal" id="ex1">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="bg-white border-b border-gray-200 prose">
-                    <h2 class="font-review">Tambah Via Excell</h2>
-
-
-                    <form method="POST" action="/dashboard/data-santri/store" enctype="multipart/form-data">
-
-                        @csrf
-
-
-                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                            for="file_input">Upload file</label>
-                        <input aria-describedby="file_input_help" id="file_input" type="file" name="sheet">
-                        <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">Upload File
-                            Excell
-                        </p>
-
-
-                        <button type="submit"
-                            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Upload</button>
-                    </form>
-
+    <!-- Put this part before </body> tag -->
+    <input type="checkbox" id="my-modal-4" class="modal-toggle" />
+    <label for="my-modal-4" class="modal cursor-pointer">
+        <label class="modal-box relative" for="">
+            <div class="">
+                <div class="overflow-hidden shadow-sm sm:rounded-lg">
+                    <div class="border-b border-gray-200 prose">
+                        <h2 class="font-Lato">Tambah Via Excell</h2>
+    
+    
+                        <form method="POST" action="{{ route('add-from-excel') }}" enctype="multipart/form-data">
+    
+                            @csrf
+    
+    
+                            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                                for="file_input">Upload file</label>
+                            <input aria-describedby="file_input_help" id="file_input" type="file" name="sheet">
+                            <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">Upload File
+                                Excell
+                            </p>
+    
+    
+                            <button type="submit"
+                                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Upload</button>
+                        </form>
+    
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
+
+        </label>
+    </label>
+
+    
+        
+    
 
 
 
@@ -229,8 +239,7 @@
         <button type="submit" name="submit" type="submit" formaction="/dashboard/data-santri/mass/delete"
             class="btn btn-error text-white">Delete</button>
 
-        <button id="dropdownDefault" data-dropdown-toggle="titipUang"
-            class="btn btn-primary text-white"
+        <button id="dropdownDefault" data-dropdown-toggle="titipUang" class="btn btn-primary text-white"
             type="button">Penitipan Uang<svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none"
                 stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -262,7 +271,8 @@
     <div class="p-2" id="">
         <div
             class="block p-6 bg-white rounded-lg border border-gray-200 shadow-md  dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-            <div id="data-filter" class="flex md:justify-between flex-col md:flex-row text-center justify-center gap-2 p-2">
+            <div id="data-filter"
+                class="flex md:justify-between flex-col md:flex-row text-center justify-center gap-2 p-2">
 
             </div>
             <div class="">
@@ -343,17 +353,9 @@
         </div>
     </div>
 
-    <div id="m1" class="modal p-3">
-        <h1 class="text-center">Anda yakin akan menghapus?</h1>
-        <div id="namePlace" class="text-center font-semibold mb-3 mt-3"></div>
-        <div class="flex justify-center">
-            <a href="#" rel="modal:close"
-                class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-full border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Batal</a>
-            <a href="/dashboard/data-santri/delete/" id="deleteBtn"
-                class="text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Tetap
-                Hapus</a>
-        </div>
-    </div>
+
+
+
 
 
 

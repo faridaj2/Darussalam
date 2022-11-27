@@ -37,7 +37,7 @@ Route::get('/dashboard', function () {
 Route::prefix('dashboard/')->middleware(['auth'])->group(function () {
     //Data Santri
     Route::get('data-santri', [Dashboard::class, 'view'])->name('dashboard/data-santri');
-    Route::post('data-santri/store', [Dashboard::class, 'store']);
+    Route::post('data-santri/store', [Dashboard::class, 'store'])->name('add-from-excel');
     Route::get('data-santri/cari', [Dashboard::class, 'search']);
     Route::get('data-santri/detail/{any}', [Dashboard::class, 'detail']);
     Route::get('data-santri/input-data/', [Dashboard::class, 'inputData']);
@@ -82,8 +82,7 @@ Route::get('getUser', function (Request $request) {
                 return $btnname;
             })
             ->addColumn('action', function ($row) {
-                $actionBtn = '<a href="/dashboard/data-santri/edit/' . $row->id . '" class="edit btn btn-primary btn-sm"><i class="fad fa-edit"></i></a> <a href="#m1" onclick="getData(this)" data-id="' . $row->id . '"
-                    data-name="' . $row->nama . '" rel="modal:open" class="btn btn-error mt-2"><i class="fad fa-trash"></i></a>';
+                $actionBtn = '<a href="/dashboard/data-santri/edit/' . $row->id . '" class="edit btn btn-primary btn-sm"><i class="fad fa-edit"></i></a> ';
 
                 return $actionBtn;
             })
