@@ -5,62 +5,82 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\spp_list;
+use DateTime, DateInterval, DatePeriod;
 
 class Spp extends Controller
 {
-    public function index(){
+    public function index()
+    {
         return view('spp.spp');
     }
     //Make controller
-    public function create(){
+    public function create()
+    {
         return view('spp.create');
     }
-    public function store(Request $request){
-        $request->validate([
-            'nama_pemabayaran' => 'required',
-            'range_awal' => 'required',
-            'range_akhir' => 'required',
-            'nominal_default' => 'required',
-            'nominal_per_bulan' => 'required',
-            'status' => 'required'
-        ]);
-        $spp = new spp_list;
-        $spp->nama_pemabayaran = $request->nama_pemabayaran;
-        $spp->range_awal = $request->range_awal;
-        $spp->range_akhir = $request->range_akhir;
-        $spp->nominal_default = $request->nominal_default;
-        $spp->nominal_per_bulan = $request->nominal_per_bulan;
-        $spp->status = $request->status;
-        $spp->save();
-        return redirect('/spp')->with('success', 'Data berhasil ditambahkan');
-    }
-    public function edit($id){
-        $spp = spp_list::find($id);
-        return view('spp.edit', compact('spp'));
-    }
-    public function update(Request $request, $id){
-        $request->validate([
-            'nama_pemabayaran' => 'required',
-            'range_awal' => 'required',
-            'range_akhir' => 'required',
-            'nominal_default' => 'required',
-            'nominal_per_bulan' => 'required',
-            'status' => 'required'
-        ]);
-        $spp = spp_list::find($id);
-        $spp->nama_pemabayaran = $request->nama_pemabayaran;
-        $spp->range_awal = $request->range_awal;
-        $spp->range_akhir = $request->range_akhir;
-        $spp->nominal_default = $request->nominal_default;
-        $spp->nominal_per_bulan = $request->nominal_per_bulan;
-        $spp->status = $request->status;
-        $spp->save();
-        return redirect('/spp')->with('success', 'Data berhasil diubah');
-    }
-    public function delete($id){
-        $spp = spp_list::find($id);
-        $spp->delete();
-        return redirect('/spp')->with('success', 'Data berhasil dihapus');
-    }
+    public function store(Request $request)
+    {
+        $sd = $request->bulan_awal_pembayaran;
+        $ld = $request->bulan_akhir_pembayaran;
 
+        $validated = $request->validate([
+            'nama_pembayaran' => 'required|unique:tb_nama_pembayarans|max:255',
+            'bulan_awal_pembayaran' => 'required',
+            'bulan_akhir_pembayaran' => 'required',
+            'nilai_default' => 'required',
+            'status' => 'required'
+        ]);
+
+        $n1 = $request->bulan_awal_pembayaran;
+        $n2 = $request->bulan_akhir_pembayaran;
+
+        $c1 = strtotime($n1);
+        $c2 = strtotime($n2);
+
+        
+
+        if ($c1 > $c2) {
+            return redirect()->back()->with(['danger' => 'Bulan awal pemayaran harus lebih kecil']);
+        }
+        
+
+        // Enter your code here, enjoy!
+        $start    = (new DateTime($sd))->modify('first day of this month');
+        $end      = (new DateTime($ld))->modify('first day of next month');
+        $interval = DateInterval::createFromDateString('1 month');
+        $period   = new DatePeriod($start, $interval, $end);
+
+        function tanggal_indo($tanggal)
+        {
+            $bulan = array(
+                1 =>   'Januari',
+                'Februari',
+                'Maret',
+                'April',
+                'Mei',
+                'Juni',
+                'Juli',
+                'Agustus',
+                'September',
+                'Oktober',
+                'November',
+                'Desember'
+            );
+            $split = explode('-', $tanggal);
+            return $split[0] . ' ' . $bulan[(int)$split[1]];
+        }
+
+        foreach ($period as $dt) {
+            echo tanggal_indo($dt->format("Y-m")) . "</br>";
+        }
+    }
+    public function edit($id)
+    {
+    }
+    public function update(Request $request, $id)
+    {
+    }
+    public function delete($id)
+    {
+    }
 }

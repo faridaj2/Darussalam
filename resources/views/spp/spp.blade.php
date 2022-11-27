@@ -18,8 +18,8 @@
                     </div>
                     <div class="col-md-6">
                         <div class="float-right">
-                            <a href="{{ route('spp.create') }}" class="btn btn-primary">
-                                <i class="fas fa-plus"></i>
+                            <a href="{{ route('spp.create') }}" class="text-white shadow-lg btn btn-primary">
+                                <i class="fas fa-plus"> </i> 
                                 Tambah SPP
                             </a>
                         </div>

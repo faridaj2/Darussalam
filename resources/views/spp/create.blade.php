@@ -5,8 +5,9 @@
         </h2>
     </x-slot>
     <div class="px-10 md:px-20 mt-10">
-
-        <form class="w-full">
+        <x-alert />
+        <form  class="w-full" method="POST" action="store">
+            @csrf
             <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
 
 
@@ -18,8 +19,8 @@
                         </label>
                     </div>
                     <div class="md:w-2/3">
-                        <input
-                            class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                        <input name="nama_pembayaran"
+                            class=" bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500 @error('nama_pembayaran') border-red-900 @enderror"
                             id="nama_pembayaran" type="text" placeholder="SPP-2022/2023">
                     </div>
                 </div>
@@ -31,8 +32,8 @@
                         </label>
                     </div>
                     <div class="md:w-2/3">
-                        <input
-                            class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                        <input name="bulan_awal_pembayaran"
+                            class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500 @error('bulan_awal_pembayaran') border-red-900 @enderror"
                             id="bulan_awal_pembayaran" type="month" placeholder="Masukkan Bulan">
                     </div>
                 </div>
@@ -44,8 +45,8 @@
                         </label>
                     </div>
                     <div class="md:w-2/3">
-                        <input
-                            class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                        <input name="bulan_akhir_pembayaran"
+                            class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500 @error('bulan_akhir_pembayaran') border-red-900 @enderror"
                             id="bulan_akhir_pembayaran" type="month" placeholder="Masukkan Bulan">
                     </div>
                 </div>
@@ -57,8 +58,8 @@
                         </label>
                     </div>
                     <div class="md:w-2/3">
-                        <input
-                            class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                        <input name="nilai_default"
+                            class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500 @error('nilai_default') border-red-900 @enderror"
                             id="nilai_default" type="text" placeholder="Nilai default">
                     </div>
                 </div>
@@ -70,8 +71,8 @@
                         </label>
                     </div>
                     <div class="md:w-2/3">
-                        <select
-                            class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                        <select name="status"
+                            class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500 @error('status') border-red-900 @enderror"
                             id="status">
                             <option value="active">Aktif</option>
                             <option value="nonactive">Non Aktif</option>
@@ -87,7 +88,7 @@
                 <div class="md:w-2/3">
                     <button
                         class="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
-                        type="button">
+                        type="submit">
                         Tambah
                     </button>
                 </div>
