@@ -275,8 +275,8 @@
                 class="flex md:justify-between flex-col md:flex-row text-center justify-center gap-2 p-2">
 
             </div>
-            <div class="">
-                <table id="yajra" class="gap-3">
+            <div class="overflow-x-auto w-full">
+                <table id="yajra" class="gap-3 table w-full">
 
                     <thead class="text-xs text-gray-700 uppercase ">
                         <tr>
