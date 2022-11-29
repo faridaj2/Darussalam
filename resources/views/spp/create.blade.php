@@ -95,9 +95,9 @@
         </form>
 
     </div>
-
+    <x-alert/>
     <div class="absolute bottom-3 left-4">
-        <x-alert />
+        <x-toast />
 
     </div>
 
@@ -110,10 +110,7 @@
     </div>
     <x-slot name="script">
         <script type="text/javascript">
-            jQuery(document).ready(function($) {
-                let hapus = (el) => $(el).hide();
-                window.hapus = hapus;
-            });
+            
         </script>
     </x-slot>
 </x-app-layout>

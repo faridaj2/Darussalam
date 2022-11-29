@@ -12,11 +12,15 @@ class Spp extends Controller
 {
     public function index()
     {
-        return view('spp.spp');
+        $data = [
+            'nama_spp' => nameSpp::orderBy('id', 'desc')->get()
+        ];
+        return view('spp.spp', $data);
     }
     //Make controller
     public function create()
     {
+        
         return view('spp.create');
     }
     public function store(Request $request)
@@ -75,13 +79,21 @@ class Spp extends Controller
             'bulan_awal' => $request->bulan_awal_pembayaran,
             'bulan_akhir' => $request->bulan_akhir_pembayaran,
             'nilai_default' => $request->nilai_default,
-            'status' => $request
+            'status' => $request->status
         ]);
+        if($tb_nama){
+            $last_id = nameSpp::latest('created_at')->first();
+
+
+        }
+        
 
 
         foreach ($period as $dt) {
             echo tanggal_indo($dt->format("Y-m")) . "</br>";
         }
+
+       
     }
     public function edit($id)
     {

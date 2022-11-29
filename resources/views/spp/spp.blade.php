@@ -4,29 +4,24 @@
             {{ '' }}
         </h2>
     </x-slot>
-    <div class="px-20">
+    <div class="flex justify-between p-8">
+        <div class="text-lg">Pembayaran</div>
+        <a href="{{ route('spp.create') }}" class="btn btn-info"><i class="fa-light fa-money-check-dollar-pen"></i> Buat Pembayaran</a>
+    </div>
 
-        <div class="card mt-2">
-            {{-- make spp --}}
-            <div class="card-header">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h3 class="card-title">
-                            <i class="fas fa-file-invoice-dollar"></i>
-                            SPP
-                        </h3>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="float-right">
-                            <a href="{{ route('spp.create') }}" class="text-white shadow-lg btn btn-primary">
-                                <i class="fas fa-plus"> </i> 
-                                Tambah SPP
-                            </a>
-                        </div>
+        {{-- List Nama Pembayaran Spp --}}
+        <div class="flex flex-col gap-3 w-full px-2">
+            @foreach ($nama_spp as $spp)
+                <div class="card w-full @if($spp->status == 'active') bg-red-400 @else bg-gray-300 @endif  shadow-xl">
+                    <div class="card-body ">
+                        <h2 class="card-title">{{ $spp->nama_pembayaran }}</h2>
+                        <p>Dari Bulan {{ $spp->bulan_awal }} sampai {{ $spp->bulan_akhir }}</p>
+
                     </div>
                 </div>
+            @endforeach
         </div>
-    </div>
+
         <x-slot name="script">
 
         </x-slot>
