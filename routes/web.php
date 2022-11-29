@@ -25,9 +25,7 @@ use Yajra\Datatables\Datatables;
 |
 */
 
-Route::get('/', function () {
-    return view('index.index');
-});
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -50,7 +48,7 @@ Route::prefix('dashboard/')->middleware(['auth'])->group(function () {
 
     //Penitipan Uang
     Route::get('penitipan-uang', [MoneyDepositController::class, 'index'])->name('dashboard/penitipan-uang');
-    Route::post('penitipan-uang/tambah-kategori', [MoneyDepositController::class, 'createCategory']);
+    Route::post('penitipan-uang/tambah-kategori', [MoneyDepositController::class, 'createCategory'])->name('input-penitipan-uang');
     Route::get('penitipan-uang/{slug}/hapus', [MoneyDepositController::class, 'destroy']);
     Route::get('penitipan-uang/{slug}', [MoneyDepositController::class, 'showKategori']);
     Route::get('penitipan-uang/{slug}/insert', [MoneyDepositController::class, 'insertStudent']);
@@ -93,3 +91,4 @@ Route::get('getUser', function (Request $request) {
 
 require __DIR__ . '/auth.php';
 require __DIR__ . '/spp.php';
+require __DIR__ . '/index.php';

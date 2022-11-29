@@ -21,11 +21,11 @@
         </label>
         <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
           <div class="divider text-xs">Menu</div>
-          <li><a class="justify-between">Home</a></li>
-          <li><a>Pendidikan</a></li>
-          <li><a>Visi & Misi</a></li>
-          <li><a>Gallery</a></li>
-          <li><a>Informasi Pendaftaran</a></li>
+          <li><a href="/" class="justify-between">Home</a></li>
+          <li><a href="#pendidikan">Pendidikan</a></li>
+          <li><a href="#visi">Visi & Misi</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="informasi">Informasi Pendaftaran</a></li>
           <div class="divider text-xs">Lainnya</div>
           <li><a>Masuk</a></li>
         </ul>

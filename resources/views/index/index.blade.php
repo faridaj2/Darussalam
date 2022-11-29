@@ -11,7 +11,7 @@
         {{-- End Hero SLide --}}
 
         {{-- Informasi Pendaftaran --}}
-        <div class="bg-gradient p-10 flex justify-center">
+        <div class="bg-gradient p-10 flex justify-center" id="informasi">
             <div class="text-left">
                 <h1 class="text-white font-Lato text-2xl font-bold mb-4">Informasi & Pendaftaran Peserta Didik Baru</h1>
 
@@ -30,7 +30,7 @@
         {{-- End Informasi Pendaftaran --}}
 
         {{-- Pendidikan --}}
-        <div class="pattern p-8">
+        <div class="pattern p-8" id="pendidikan">
             <h1 class="text-center bg-transparent font-Lato font-bold text-2xl">
                 <span class="text-[#60A547]">Program</span>
                 <span class="text-[#648459]">Pendidikan</span>
@@ -96,7 +96,7 @@
 
         {{-- Visi & Misi --}}
 
-        <div class="bg-gradient font-Lato text-white font-Lato font-normal py-10 px-12">
+        <div id="visi" class="bg-gradient font-Lato text-white font-Lato font-normal py-10 px-12">
             <div class="mx-auto md:w-1/2 text-center">
                 <div>
                     <h1 class="font-bold text-3xl py-10">Visi</h1>
@@ -132,7 +132,7 @@
         {{-- End Visi & Misi --}}
 
         {{-- Gallery --}}
-        <div class="pattern p-12">
+        <div class="pattern p-12" id="gallery">
             <h1 class="text-center bg-transparent font-Lato font-bold text-2xl">
                 <span class="text-[#60A547] mt-10">Gallery</span>
             </h1>

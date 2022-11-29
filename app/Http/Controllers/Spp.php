@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\spp_list;
 use DateTime, DateInterval, DatePeriod;
+use App\Models\tb_nama_pembayaran as nameSpp;
 
 class Spp extends Controller
 {
@@ -37,11 +38,11 @@ class Spp extends Controller
         $c1 = strtotime($n1);
         $c2 = strtotime($n2);
 
-        
-
         if ($c1 > $c2) {
             return redirect()->back()->with(['danger' => 'Bulan awal pemayaran harus lebih kecil']);
         }
+
+
         
 
         // Enter your code here, enjoy!
@@ -69,6 +70,14 @@ class Spp extends Controller
             $split = explode('-', $tanggal);
             return $split[0] . ' ' . $bulan[(int)$split[1]];
         }
+        $tb_nama = nameSpp::create([
+            'nama_pembayaran' => $request->nama_pembayaran,
+            'bulan_awal' => $request->bulan_awal_pembayaran,
+            'bulan_akhir' => $request->bulan_akhir_pembayaran,
+            'nilai_default' => $request->nilai_default,
+            'status' => $request
+        ]);
+
 
         foreach ($period as $dt) {
             echo tanggal_indo($dt->format("Y-m")) . "</br>";

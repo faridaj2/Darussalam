@@ -5,8 +5,8 @@
         </h2>
     </x-slot>
     <div class="px-10 md:px-20 mt-10">
-        <x-alert />
-        <form  class="w-full" method="POST" action="store">
+
+        <form class="w-full" method="POST" action="store">
             @csrf
             <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
 
@@ -65,8 +65,7 @@
                 </div>
                 <div class="md:flex md:items-center mb-6">
                     <div class="md:w-1/3">
-                        <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
-                            for="status">
+                        <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="status">
                             Status
                         </label>
                     </div>
@@ -95,12 +94,26 @@
             </div>
         </form>
 
+    </div>
+
+    <div class="absolute bottom-3 left-4">
+        <x-alert />
+
+    </div>
+
+
+
 
 
 
 
     </div>
     <x-slot name="script">
-
+        <script type="text/javascript">
+            jQuery(document).ready(function($) {
+                let hapus = (el) => $(el).hide();
+                window.hapus = hapus;
+            });
+        </script>
     </x-slot>
 </x-app-layout>

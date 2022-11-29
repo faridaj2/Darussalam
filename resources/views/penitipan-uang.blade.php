@@ -11,7 +11,7 @@
 
     <div class="md:grid grid-cols-4 gap-2 ">
         <div class="rounded-md card m-2 mt-6 p-5 bg-white rounded-lg border shadow-lg">
-            <form method="post" action="/dashboard/penitipan-uang/tambah-kategori">
+            <form method="post" action="{{ route('input-penitipan-uang') }}">
                 @csrf
                 <h1 class="font-bold mx-2 w-full">Tambah Kategori</h1>
                 <div class="border-b border-gray-200 my-5"></div>
