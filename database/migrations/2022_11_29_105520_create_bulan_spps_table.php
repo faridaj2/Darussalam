@@ -15,8 +15,8 @@ class CreateBulanSppsTable extends Migration
     {
         Schema::create('bulan_spps', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_pembayaran'),
-            $table->string('bulan'),
+            $table->integer('id_pembayaran');
+            $table->string('bulan');
             $table->timestamps();
         });
     }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\bulan_spp;
 use Illuminate\Http\Request;
 use App\Models\spp_list;
 use DateTime, DateInterval, DatePeriod;
@@ -83,15 +84,17 @@ class Spp extends Controller
         ]);
         if($tb_nama){
             $last_id = nameSpp::latest('created_at')->first();
-
-
+            foreach ($period as $dt) {
+                bulan_spp::create([
+                    'id_pembayaran' => $last_id->id,
+                    'bulan' => tanggal_indo($dt->format("Y-m"))
+                ]);
+            }
         }
         
+        return redirect('dashboard/spp-kos');
 
-
-        foreach ($period as $dt) {
-            echo tanggal_indo($dt->format("Y-m")) . "</br>";
-        }
+        
 
        
     }
