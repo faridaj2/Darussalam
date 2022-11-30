@@ -46,3 +46,6 @@
 .gallery img{
     height: 320px;
 }
+html {
+    scroll-behavior: smooth;
+  }
