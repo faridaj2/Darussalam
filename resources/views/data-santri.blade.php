@@ -200,25 +200,25 @@
                 <div class="overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="border-b border-gray-200 prose">
                         <h2 class="font-Lato">Tambah Via Excell</h2>
-    
-    
+
+
                         <form method="POST" action="{{ route('add-from-excel') }}" enctype="multipart/form-data">
-    
+
                             @csrf
-    
-    
+
+
                             <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                                 for="file_input">Upload file</label>
                             <input aria-describedby="file_input_help" id="file_input" type="file" name="sheet">
                             <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">Upload File
                                 Excell
                             </p>
-    
-    
+
+
                             <button type="submit"
                                 class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Upload</button>
                         </form>
-    
+
                     </div>
                 </div>
             </div>
@@ -226,9 +226,9 @@
         </label>
     </label>
 
-    
-        
-    
+
+
+
 
 
 
@@ -276,7 +276,7 @@
 
             </div>
             <div class="overflow-x-auto w-full">
-                <table id="yajra" class="gap-3 table w-full">
+                <table id="yajra" class="gap-3  w-full">
 
                     <thead class="text-xs text-gray-700 uppercase ">
                         <tr>

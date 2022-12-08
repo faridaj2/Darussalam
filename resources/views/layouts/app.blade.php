@@ -27,7 +27,7 @@
     <script nomodule="" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.js"></script>
     <link rel="shortcut icon" href="{{  asset('icon.ico')  }}" type="image/x-icon">
 
-    
+
 
 
 
