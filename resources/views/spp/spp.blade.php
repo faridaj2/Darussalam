@@ -23,7 +23,7 @@
                         <div class="dropdown dropdown-top dropdown-end">
                             <label tabindex="0" class="btn btn-sm btn-primary rounded-full text-white m-1">Detail</label>
                             <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-white rounded-box w-52">
-                              <li><a href="/dashboard/spp-kos/detail-spp">Detail</a></li>
+                              <li><a href="/dashboard/spp/detail-spp/{{ $spp->id }}">Detail</a></li>
                               <li><a>Item 2</a></li>
                             </ul>
                           </div>

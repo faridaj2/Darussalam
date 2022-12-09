@@ -10,4 +10,6 @@ Route::middleware('auth')->prefix('/dashboard/spp')->group(function () {
     Route::get('/edit/{id}', [Spp::class, 'edite'])->name('spp.edit');
     Route::post('/update/{id}', [Spp::class, 'update'])->name('spp.update');
     Route::get('/delete/{id}', [Spp::class, 'delete'])->name('spp.delete');
+    Route::get('/detail-spp/kelola-daftar', [Spp::class, 'kelola_daftar']);
+    Route::get('/detail-spp/{id}', [Spp::class, 'detail_keuangan']);
 });

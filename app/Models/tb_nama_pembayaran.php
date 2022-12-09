@@ -10,7 +10,8 @@ class tb_nama_pembayaran extends Model
     use HasFactory;
     protected $guarded = ['id'];
 
-    public function bulan_spp(){
+    public function bulan_spp()
+    {
         return $this->hasMany(bulan_spp::class);
     }
 }

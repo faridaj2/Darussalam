@@ -15,7 +15,7 @@ class CreateBulanSppsTable extends Migration
     {
         Schema::create('bulan_spps', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_pembayaran');
+            $table->foreignId('tb_nama_pembayaran_id');
             $table->string('bulan');
             $table->timestamps();
         });

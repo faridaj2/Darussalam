@@ -2870,6 +2870,12 @@ body[dir="rtl"] .checkbox:checked,
   background-color: hsl(var(--b1) / var(--tw-bg-opacity));
 }
 
+.table-zebra tbody tr:nth-child(even) th, 
+      .table-zebra tbody tr:nth-child(even) td {
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--b2, var(--b1)) / var(--tw-bg-opacity));
+}
+
 :where(.table *:first-child) :where(*:first-child) :where(th, td):first-child {
   border-top-left-radius: 0.5rem;
 }
@@ -2979,6 +2985,10 @@ body[dir="rtl"] .checkbox:checked,
   padding-right: 0.75rem;
   min-height: 2rem;
   font-size: 0.875rem;
+}
+
+.btn-wide {
+  width: 16rem;
 }
 
 .btn-square:where(.btn-sm) {

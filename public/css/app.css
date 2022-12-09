@@ -2859,6 +2859,12 @@ body[dir="rtl"] .checkbox:checked,
   background-color: hsl(var(--b1) / var(--tw-bg-opacity));
 }
 
+.table-zebra tbody tr:nth-child(even) th, 
+      .table-zebra tbody tr:nth-child(even) td {
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--b2, var(--b1)) / var(--tw-bg-opacity));
+}
+
 :where(.table *:first-child) :where(*:first-child) :where(th, td):first-child {
   border-top-left-radius: 0.5rem;
 }
@@ -2963,6 +2969,10 @@ body[dir="rtl"] .checkbox:checked,
   padding-right: 0.75rem;
   min-height: 2rem;
   font-size: 0.875rem;
+}
+
+.btn-wide {
+  width: 16rem;
 }
 
 .btn-square:where(.btn-sm) {
@@ -3158,10 +3168,13 @@ body[dir="rtl"] .checkbox:checked,
   grid-column: span 4 / span 4;
 }
 
+<<<<<<< Updated upstream
 .col-span-3 {
   grid-column: span 3 / span 3;
 }
 
+=======
+>>>>>>> Stashed changes
 .m-3 {
   margin: 0.75rem;
 }
@@ -3730,16 +3743,23 @@ body[dir="rtl"] .checkbox:checked,
   border-radius: 0.25rem;
 }
 
+<<<<<<< Updated upstream
 .rounded-\[20px\] {
   border-radius: 20px;
 }
 
+=======
+>>>>>>> Stashed changes
 .rounded-sm {
   border-radius: 0.125rem;
 }
 
 .rounded-full {
   border-radius: 9999px;
+}
+
+.rounded-\[20px\] {
+  border-radius: 20px;
 }
 
 .rounded-l-md {
@@ -3938,6 +3958,7 @@ body[dir="rtl"] .checkbox:checked,
   background-color: rgb(185 28 28 / var(--tw-bg-opacity));
 }
 
+<<<<<<< Updated upstream
 .bg-gray-50 {
   --tw-bg-opacity: 1;
   background-color: rgb(249 250 251 / var(--tw-bg-opacity));
@@ -3946,6 +3967,10 @@ body[dir="rtl"] .checkbox:checked,
 .bg-red-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(254 226 226 / var(--tw-bg-opacity));
+=======
+.bg-white\/20 {
+  background-color: rgb(255 255 255 / 0.2);
+>>>>>>> Stashed changes
 }
 
 .bg-indigo-500 {
@@ -3953,6 +3978,7 @@ body[dir="rtl"] .checkbox:checked,
   background-color: rgb(99 102 241 / var(--tw-bg-opacity));
 }
 
+<<<<<<< Updated upstream
 .bg-pink-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(236 72 153 / var(--tw-bg-opacity));
@@ -3973,6 +3999,8 @@ body[dir="rtl"] .checkbox:checked,
   background-color: rgb(168 85 247 / var(--tw-bg-opacity));
 }
 
+=======
+>>>>>>> Stashed changes
 .fill-current {
   fill: currentColor;
 }
@@ -4850,11 +4878,14 @@ body[dir="rtl"] .checkbox:checked,
   background-color: rgb(219 39 119 / var(--tw-bg-opacity));
 }
 
+<<<<<<< Updated upstream
 .hover\:bg-purple-400:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(192 132 252 / var(--tw-bg-opacity));
 }
 
+=======
+>>>>>>> Stashed changes
 .hover\:text-gray-500:hover {
   --tw-text-opacity: 1;
   color: rgb(107 114 128 / var(--tw-text-opacity));
@@ -4981,9 +5012,20 @@ body[dir="rtl"] .checkbox:checked,
   background-color: rgb(219 39 119 / var(--tw-bg-opacity));
 }
 
+<<<<<<< Updated upstream
 .focus\:bg-white:focus {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+=======
+.focus\:bg-indigo-100:focus {
+  --tw-bg-opacity: 1;
+  background-color: rgb(224 231 255 / var(--tw-bg-opacity));
+}
+
+.focus\:bg-gray-50:focus {
+  --tw-bg-opacity: 1;
+  background-color: rgb(249 250 251 / var(--tw-bg-opacity));
+>>>>>>> Stashed changes
 }
 
 .focus\:text-gray-700:focus {

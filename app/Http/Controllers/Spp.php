@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\spp_list;
 use DateTime, DateInterval, DatePeriod;
 use App\Models\tb_nama_pembayaran as nameSpp;
+use App\Models\tb_nama_pembayaran;
 
 class Spp extends Controller
 {
@@ -86,7 +87,7 @@ class Spp extends Controller
             $last_id = nameSpp::latest('created_at')->first();
             foreach ($period as $dt) {
                 bulan_spp::create([
-                    'id_pembayaran' => $last_id->id,
+                    'tb_nama_pembayaran_id' => $last_id->id,
                     'bulan' => tanggal_indo($dt->format("Y-m"))
                 ]);
             }
@@ -106,5 +107,15 @@ class Spp extends Controller
     }
     public function delete($id)
     {
+    }
+    public function detail_keuangan($id){
+        $tb = nameSpp::find($id);
+        $data = [
+            'tb' => $tb
+        ];
+        return view('spp.detail_keuangan', $data);
+    }
+    public function kelola_daftar(){
+        return view('spp.kelola_daftar');
     }
 }

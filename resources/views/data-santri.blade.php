@@ -276,7 +276,11 @@
 
             </div>
             <div class="overflow-x-auto w-full">
+<<<<<<< Updated upstream
                 <table id="yajra" class="gap-3  w-full">
+=======
+                <table id="yajra" class="gap-3 w-full">
+>>>>>>> Stashed changes
 
                     <thead class="text-xs text-gray-700 uppercase ">
                         <tr>
@@ -352,6 +356,7 @@
             </div>
         </div>
     </div>
+    
 
 
 
