@@ -276,11 +276,7 @@
 
             </div>
             <div class="overflow-x-auto w-full">
-<<<<<<< Updated upstream
-                <table id="yajra" class="gap-3  w-full">
-=======
                 <table id="yajra" class="gap-3 w-full">
->>>>>>> Stashed changes
 
                     <thead class="text-xs text-gray-700 uppercase ">
                         <tr>
@@ -356,7 +352,7 @@
             </div>
         </div>
     </div>
-    
+
 
 
 
@@ -512,7 +508,7 @@
                     } else {
                         selected.splice(index, 1);
                     }
-                    $(this).toggleClass('selected');
+                    $(this).toggleClass('terpilih');
                     $('#data-array').val(selected);
                 });
                 $('#yajra_length').appendTo('#data-filter');

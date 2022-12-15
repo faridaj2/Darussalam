@@ -16,7 +16,7 @@
             <div class="w-full @if ($spp->status == 'active') bg-white @else bg-gray-100 @endif  shadow-xl rounded-lg">
                 <div class="flex justify-between p-5">
                     <div>
-                        <h2 class="card-title font-Lato">{{ $spp->nama_pembayaran }}</h2>
+                        <h2 class="card-title">{{ $spp->nama_pembayaran }}</h2>
                         <p class="text-xs">Dari Bulan {{ $spp->bulan_awal }} sampai {{ $spp->bulan_akhir }}</p>
                     </div>
                     <div class="">
@@ -28,7 +28,7 @@
                             </ul>
                           </div>
                     </div>
-                    
+
                 </div>
             </div>
         @endforeach

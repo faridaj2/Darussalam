@@ -21,8 +21,9 @@
     <script defer src="{{ asset('js/index.js') }}"></script>
     <!-- Scripts -->
     {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <script src="https://unpkg.com/flowbite@1.5.2/dist/flowbite.js"></script>
     <script nomodule="" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.js"></script>
     <link rel="shortcut icon" href="{{  asset('icon.ico')  }}" type="image/x-icon">
