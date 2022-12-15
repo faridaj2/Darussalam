@@ -47,6 +47,7 @@ return array(
     'App\\Models\\spp_list' => $baseDir . '/app/Models/spp_list.php',
     'App\\Models\\student' => $baseDir . '/app/Models/student.php',
     'App\\Models\\tb_nama_pembayaran' => $baseDir . '/app/Models/tb_nama_pembayaran.php',
+    'App\\Models\\tb_spp_list_student' => $baseDir . '/app/Models/tb_spp_list_student.php',
     'App\\Policies\\MdListPolicy' => $baseDir . '/app/Policies/MdListPolicy.php',
     'App\\Policies\\MoneyDepositPolicy' => $baseDir . '/app/Policies/MoneyDepositPolicy.php',
     'App\\Policies\\MoneyRePolicy' => $baseDir . '/app/Policies/MoneyRePolicy.php',

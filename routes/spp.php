@@ -12,4 +12,5 @@ Route::middleware('auth')->prefix('/dashboard/spp')->group(function () {
     Route::get('/delete/{id}', [Spp::class, 'delete'])->name('spp.delete');
     Route::get('/detail-spp/kelola-daftar', [Spp::class, 'kelola_daftar']);
     Route::get('/detail-spp/{id}', [Spp::class, 'detail_keuangan']);
+    Route::get('/input_santri/{id}/insert', [Spp::class, 'input_santri']);
 });
