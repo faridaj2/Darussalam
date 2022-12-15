@@ -3549,6 +3549,7 @@ body[dir="rtl"] .checkbox:checked,
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
+<<<<<<< Updated upstream
 }
 .px-3 {
   padding-left: 0.75rem;
@@ -3570,6 +3571,29 @@ body[dir="rtl"] .checkbox:checked,
   padding-left: 1.25rem;
   padding-right: 1.25rem;
 }
+=======
+}
+.px-3 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+.px-10 {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+.py-2\.5 {
+  padding-top: 0.625rem;
+  padding-bottom: 0.625rem;
+}
+.py-1 {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+.px-5 {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+>>>>>>> Stashed changes
 .py-3 {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
@@ -4178,12 +4202,15 @@ body[dir="rtl"] .checkbox:checked,
     color: rgb(255 255 255 / var(--tw-text-opacity));
   }
 }
+<<<<<<< Updated upstream
 #yajra tbody tr.terpilih, #yajra tbody tr.terpilih a {
   --tw-bg-opacity: 1;
   background-color: rgb(251 146 60 / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
+=======
+>>>>>>> Stashed changes
 .hover\:scale-105:hover {
   --tw-scale-x: 1.05;
   --tw-scale-y: 1.05;

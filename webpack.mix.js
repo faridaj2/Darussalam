@@ -13,7 +13,10 @@ const mix = require('laravel-mix');
 
 mix.js('index.js', 'public/js/app.js')
     .postCss('input.css', 'public/css/app.js', [
-        //
+        require('tailwindcss')
     ]);
 mix.browserSync('127.0.0.1:8000');
+<<<<<<< Updated upstream
 mix.disableNotifications();
+=======
+>>>>>>> Stashed changes
