@@ -9,6 +9,7 @@ use App\Models\spp_list;
 use DateTime, DateInterval, DatePeriod;
 use App\Models\tb_nama_pembayaran as nameSpp;
 use App\Models\tb_nama_pembayaran;
+use App\Models\tb_spp_list_student;
 
 class Spp extends Controller
 {
@@ -117,5 +118,11 @@ class Spp extends Controller
     }
     public function kelola_daftar(){
         return view('spp.kelola_daftar');
+    }
+    public function input_santri(Request $request, $id){
+        if ($request->data == null) {
+            return redirect()->back()->with(['danger' => 'Tidak ada data terpilih']);
+        }
+        tb_spp_list_student::create
     }
 }

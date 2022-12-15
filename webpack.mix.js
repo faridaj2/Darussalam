@@ -15,3 +15,5 @@ mix.js('index.js', 'public/js/app.js')
     .postCss('input.css', 'public/css/app.js', [
         //
     ]);
+mix.browserSync('127.0.0.1:8000');
+mix.disableNotifications();
