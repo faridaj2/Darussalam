@@ -26,29 +26,14 @@
           </thead>
           <tbody>
             <!-- row 1 -->
-            <tr>
-              <th>1</th>
-              <td>Cy Ganderton</td>
-              <td>Quality Control Specialist</td>
-              <td>Blue</td>
-            </tr>
-            <!-- row 2 -->
-            <tr>
-              <th>2</th>
-              <td>Hart Hagerty</td>
-              <td>Desktop Support Technician</td>
-              <td></td>
-              <td></td>
-              <td>Purple</td>
-            </tr>
-            <!-- row 3 -->
-            <tr>
-              <th>3</th>
-              <td>Brice Swyre</td>
-              <td>Tax Accountant</td>
-              <td>Red</td>
-            </tr>
+            @foreach ($tb->tb_spp_list_student as $item)
+              <tr>
+                <th>{{ $item->student->nama }}</th>
+              </tr>
+            @endforeach
+            
+           
           </tbody>
         </table>
       </div>
-</x-app-layout>
+    </x-app-layout>

@@ -16,7 +16,5 @@ mix.js('index.js', 'public/js/app.js')
         require('tailwindcss')
     ]);
 mix.browserSync('127.0.0.1:8000');
-<<<<<<< Updated upstream
+
 mix.disableNotifications();
-=======
->>>>>>> Stashed changes

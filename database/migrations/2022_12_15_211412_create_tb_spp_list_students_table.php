@@ -15,8 +15,8 @@ class CreateTbSppListStudentsTable extends Migration
     {
         Schema::create('tb_spp_list_students', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('student');
-            $table->foreignId('tb_nama_pembayaran');
+            $table->foreignId('student_id');
+            $table->foreignId('tb_nama_pembayaran_id');
             $table->timestamps();
         });
     }
