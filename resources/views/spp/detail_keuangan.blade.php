@@ -29,12 +29,20 @@
                 <!-- row 1 -->
                 @foreach ($tb->tb_spp_list_student as $item)
                     <tr>
-                      
+
                         <th>{{ $item->student->nama }}</th>
                         @foreach ($tb->bulan_spp as $i)
-                        <th>
-                            {{ $i->spp_list }}
-                        </th>
+                            @foreach ($tb->bulan_spp as $month)
+                                <th>
+                                    @foreach ($tb->spp_list as $spp)
+                                        @if ($spp->student_id == $item->student->id)
+                                            @if ($spp->bulan_spp_id == $month->id)
+                                                {{ $spp->id }}
+                                            @endif
+                                        @endif
+                                    @endforeach
+                                </th>
+                            @endforeach
                         @endforeach
                     </tr>
                 @endforeach
