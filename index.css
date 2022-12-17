@@ -27,7 +27,7 @@
     @apply text-6xl flex justify-between absolute top-10 w-full lg:top-56 md:top-40 xl:top-64
 }
 .owl-nav button span{
-    @apply p-2 bg-red-50 opacity-50 
+    @apply p-2 bg-red-50 opacity-50
 }
 .pattern{
     position: relative;
@@ -48,4 +48,5 @@
 }
 html {
     scroll-behavior: smooth;
+
   }
