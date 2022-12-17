@@ -18,4 +18,8 @@ class tb_nama_pembayaran extends Model
     {
         return $this->hasMany(tb_spp_list_student::class);
     }
+    public function spp_list()
+    {
+        return $this->hasMany(spp_list::class);
+    }
 }

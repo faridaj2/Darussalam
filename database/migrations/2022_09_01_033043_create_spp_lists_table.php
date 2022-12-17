@@ -16,12 +16,10 @@ class CreateSppListsTable extends Migration
     {
         Schema::create('spp_lists', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_pemabayaran');
-            $table->string('range_awal');
-            $table->string('range_akhir');
-            $table->integer('nominal_default');
-            $table->json('nominal_per_bulan');
-            $table->integer('status');
+            $table->foreignId('tb_nama_pembayaran_id');
+            $table->foreignId('student_id');
+            $table->foreignId('bulan_spp_id');
+            $table->string('jumlah');
             $table->timestamps();
         });
     }

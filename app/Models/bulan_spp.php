@@ -13,4 +13,8 @@ class bulan_spp extends Model
     public function tb_nama_pembayaran(){
         return $this->belongsTo(tb_nama_pembayaran::class);
     }
+    public function spp_list()
+    {
+        return $this->hasMany(spp_list::class);
+    }
 }
