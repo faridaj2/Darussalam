@@ -628,6 +628,7 @@ class ComposerStaticInitb8b1dc15f011e19a045641785ae6b413
         'App\\Models\\spp_list' => __DIR__ . '/../..' . '/app/Models/spp_list.php',
         'App\\Models\\student' => __DIR__ . '/../..' . '/app/Models/student.php',
         'App\\Models\\tb_nama_pembayaran' => __DIR__ . '/../..' . '/app/Models/tb_nama_pembayaran.php',
+        'App\\Models\\tb_spp_list_student' => __DIR__ . '/../..' . '/app/Models/tb_spp_list_student.php',
         'App\\Policies\\MdListPolicy' => __DIR__ . '/../..' . '/app/Policies/MdListPolicy.php',
         'App\\Policies\\MoneyDepositPolicy' => __DIR__ . '/../..' . '/app/Policies/MoneyDepositPolicy.php',
         'App\\Policies\\MoneyRePolicy' => __DIR__ . '/../..' . '/app/Policies/MoneyRePolicy.php',

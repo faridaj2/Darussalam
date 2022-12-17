@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use App\Models\spp_list;
 use DateTime, DateInterval, DatePeriod;
 use App\Models\tb_nama_pembayaran as nameSpp;
+use App\Models\tb_nama_pembayaran;
+use App\Models\tb_spp_list_student;
 
 class Spp extends Controller
 {
@@ -86,7 +88,7 @@ class Spp extends Controller
             $last_id = nameSpp::latest('created_at')->first();
             foreach ($period as $dt) {
                 bulan_spp::create([
-                    'id_pembayaran' => $last_id->id,
+                    'tb_nama_pembayaran_id' => $last_id->id,
                     'bulan' => tanggal_indo($dt->format("Y-m"))
                 ]);
             }
@@ -106,5 +108,39 @@ class Spp extends Controller
     }
     public function delete($id)
     {
+    }
+    public function detail_keuangan($id){
+        $tb = nameSpp::find($id);
+        $data = [
+            'tb' => $tb
+        ];
+        return view('spp.detail_keuangan', $data);
+    }
+    public function kelola_daftar(){
+        return view('spp.kelola_daftar');
+    }
+    public function input_santri(Request $request, $id){
+        if ($request->data == null) {
+            return redirect()->back()->with(['danger' => 'Tidak ada data terpilih']);
+        }
+        $data = explode(',',$request->data);
+
+        foreach($data as $i){
+            $tb = tb_spp_list_student::where([
+                'tb_nama_pembayaran_id' => $id,
+                'student_id' => $i
+            ])->get();
+
+            if($tb->count() >= 1){
+                continue;
+            }
+            tb_spp_list_student::create([
+                'student_id' => $i,
+                'tb_nama_pembayaran_id' => $id
+            ]);
+         }
+
+         return redirect()->back()->with(['success' => 'Data Berhasil dimasukkan']);
+        
     }
 }

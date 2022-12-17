@@ -20,14 +20,17 @@
     "alpinejs": "^3.10.3",
     "autoprefixer": "^10.4.2",
     "axios": "^0.21",
-    "laravel-mix": "^6.0.6",
+    "browser-sync": "^2.27.10",
+    "browser-sync-webpack-plugin": "^2.3.0",
+    "laravel-mix": "^6.0.49",
     "lodash": "^4.17.19",
     "postcss": "^8.4.6",
     "tailwindcss": "^3.2.3"
   },
   "dependencies": {
     "daisyui": "^2.24.0",
-    "flowbite": "^1.4.7"
+    "flowbite": "^1.4.7",
+    "pool-watch": "^1.0.1"
   },
   "directories": {
     "test": "tests"

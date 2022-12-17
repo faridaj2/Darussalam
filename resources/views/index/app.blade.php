@@ -11,6 +11,11 @@
     <link rel="stylesheet" href="{{ asset('dist/assets/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('dist/assets/owl.theme.default.min.css') }}">
     <link rel="icon" type="image/x-icon" href="{{ asset('icon.ico') }}">
+    <link rel="stylesheet" href="https://kit-pro.fontawesome.com/releases/v5.12.1/css/pro.min.css">
+
+    {{-- Animation On Scroll --}}
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     
     
     {{-- Font --}}

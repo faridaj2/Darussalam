@@ -11,6 +11,7 @@ use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use Illuminate\Routing\Controller as BaseController;
 use App\Models\student;
+use App\Models\tb_nama_pembayaran;
 use Illuminate\Support\Facades\Redirect;
 
 use Illuminate\Support\Facades\Response;
@@ -27,7 +28,8 @@ class Dashboard extends BaseController
 
 
         $data = [
-            'money_dep' => money_deposit::get()
+            'money_dep' => money_deposit::get(),
+            'pembayaran' => tb_nama_pembayaran::get()
         ];
         return view('data-santri', $data);
     }

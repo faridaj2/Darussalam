@@ -25,9 +25,9 @@
           <li><a href="#pendidikan">Pendidikan</a></li>
           <li><a href="#visi">Visi & Misi</a></li>
           <li><a href="#gallery">Gallery</a></li>
-          <li><a href="informasi">Informasi Pendaftaran</a></li>
+          <li><a href="#informasi">Informasi Pendaftaran</a></li>
           <div class="divider text-xs">Lainnya</div>
-          <li><a>Masuk</a></li>
+          <li><a><i class="fa-solid fa-right-to-bracket"></i></a></li>
         </ul>
       </div>
     </div>

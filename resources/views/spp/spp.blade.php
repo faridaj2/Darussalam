@@ -16,19 +16,19 @@
             <div class="w-full @if ($spp->status == 'active') bg-white @else bg-gray-100 @endif  shadow-xl rounded-lg">
                 <div class="flex justify-between p-5">
                     <div>
-                        <h2 class="card-title font-Lato">{{ $spp->nama_pembayaran }}</h2>
+                        <h2 class="card-title">{{ $spp->nama_pembayaran }}</h2>
                         <p class="text-xs">Dari Bulan {{ $spp->bulan_awal }} sampai {{ $spp->bulan_akhir }}</p>
                     </div>
                     <div class="">
                         <div class="dropdown dropdown-top dropdown-end">
                             <label tabindex="0" class="btn btn-sm btn-primary rounded-full text-white m-1">Detail</label>
                             <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-white rounded-box w-52">
-                              <li><a href="/dashboard/spp-kos/detail-spp">Detail</a></li>
+                              <li><a href="/dashboard/spp/detail-spp/{{ $spp->id }}">Detail</a></li>
                               <li><a>Item 2</a></li>
                             </ul>
                           </div>
                     </div>
-                    
+
                 </div>
             </div>
         @endforeach

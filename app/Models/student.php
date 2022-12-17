@@ -14,4 +14,8 @@ class student extends Model
     {
         return $this->hasMany(md_list::class);
     }
+    public function tb_spp_list_student()
+    {
+        return $this->hasMany(tb_spp_list_student::class);
+    }
 }

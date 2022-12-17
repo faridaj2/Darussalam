@@ -200,25 +200,25 @@
                 <div class="overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="border-b border-gray-200 prose">
                         <h2 class="font-Lato">Tambah Via Excell</h2>
-    
-    
+
+
                         <form method="POST" action="{{ route('add-from-excel') }}" enctype="multipart/form-data">
-    
+
                             @csrf
-    
-    
+
+
                             <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                                 for="file_input">Upload file</label>
                             <input aria-describedby="file_input_help" id="file_input" type="file" name="sheet">
                             <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">Upload File
                                 Excell
                             </p>
-    
-    
+
+
                             <button type="submit"
                                 class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Upload</button>
                         </form>
-    
+
                     </div>
                 </div>
             </div>
@@ -226,9 +226,9 @@
         </label>
     </label>
 
-    
-        
-    
+
+
+
 
 
 
@@ -262,6 +262,31 @@
             </ul>
         </div>
 
+        <button id="dropdownDefault" data-dropdown-toggle="Pembayaran" class="btn btn-primary text-white"
+            type="button">Pembayaran<svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg></button>
+        <!-- Dropdown menu -->
+        <div id="Pembayaran"
+            class="z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 block hidden"
+            data-popper-reference-hidden="true" data-popper-escaped="" data-popper-placement="bottom"
+            style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(316.25px, 70px);">
+            <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
+                @foreach ($pembayaran as $item)
+                    <li>
+                        <button type="submit" formaction="/dashboard/spp/input_santri/{{ $item->id }}/insert"
+                            class="block w-full text-left py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{ $item->nama_pembayaran }}
+                        </button>
+                    </li>
+                @endforeach
+
+
+            </ul>
+        </div>
+
+
+
     </form>
 
     {{-- Data --}}
@@ -276,7 +301,10 @@
 
             </div>
             <div class="overflow-x-auto w-full">
-                <table id="yajra" class="gap-3 table w-full">
+
+
+                <table id="yajra" class="gap-3 w-full">
+
 
                     <thead class="text-xs text-gray-700 uppercase ">
                         <tr>
@@ -352,6 +380,7 @@
             </div>
         </div>
     </div>
+
 
 
 
@@ -507,7 +536,7 @@
                     } else {
                         selected.splice(index, 1);
                     }
-                    $(this).toggleClass('selected');
+                    $(this).toggleClass('terpilih');
                     $('#data-array').val(selected);
                 });
                 $('#yajra_length').appendTo('#data-filter');
